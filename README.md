@@ -1,5 +1,4 @@
 # Event Planner Platform
-
 This repository contains the source code and documentation for an event planning platform. The platform aims to simplify the organization of events, offering a comprehensive solution for various occasions, from birthdays to weddings and corporate retreats.
 
 **Please Note: This project is developed solely for a university project.**
