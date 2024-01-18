@@ -17,6 +17,7 @@ This repository contains the source code and documentation for an event planning
   - [Methodology](#methodology)
   - [Technology Stack](#technology-stack)
   - [Deployment](#deployment)
+  - [Commands](#commands)
   - [Disclaimer](#disclaimer)
 
 ## Technologies Used
@@ -63,6 +64,13 @@ HTML, CSS, and JavaScript for frontend development; Node.js for backend; Postgre
 
 ## Deployment
 A careful evaluation will be conducted during the application deployment phase, selecting efficient web servers and cloud storage options based on rigorous criteria such as performance, scalability, and security.
+
+## Commands
+- To test the database connection, use the following command:
+  ```bash
+  cd server
+  ./node_modules/.bin/ts-node-dev ./src/sql/testConnection.ts
+  ```
 
 ## Disclaimer
 This project is developed exclusively for educational purposes as part of a university course. The information provided in this repository is based on a fictional scenario and does not represent a real-world application.
