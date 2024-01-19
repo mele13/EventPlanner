@@ -1,55 +1,47 @@
-// import express from 'express'
-// // import * as diaryServices from '../services/diaryServices'
-// // import toNewDiaryEntry from '../utils'
+import express from 'express'
+import { UserService } from '../services/userService'
 
-// const router = express.Router()
+const router = express.Router()
+const userService = new UserService()
 
-// router.get("/users", (req, res) => {
-//   // here we will have logic to return all users
-// })
+router.get('/', async (_req, res) => {
+  const users = await userService.getAllUsers()
+  res.json(users)
+})
 
-// router.get("/users/:id", (req, res) => {
-//   // here we will have logic to return user by id
-// })
+router.get('/:id', async (req, res) => {
+  const userId = +req.params.id;
+  const user = await userService.getUserById(userId);
 
-// router.post("/users", (req, res) => {
-//   // here we will have logic to save a user
-// })
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(404).json({ message: 'User not found' });
+  }
+});
 
-// router.put("/users/:id", (req, res) => {
-//   // here we will have logic to update a user by a given user id
-// })
+router.post('/register', async (req, res) => {
+  try {
+    await userService.register(req.body);
+    res.status(201).send('Successfully created a new user');
+  } catch (e) {
+    if (e instanceof Error) {
+      res.status(400).send(e.message)
+    }
+    res.status(500).send('An unexpected error occurred.')
+  }
+});
 
-// router.delete("/users/:id", (req, res) => {
-//   // here we will have logic to delete a user by a given user id
-// })
+router.post('/login', async (req, res) => {
+  try {
+    const foundUser = await userService.login(req.body);
+    res.status(200).send(foundUser);
+  } catch (e) {
+    if (e instanceof Error) {
+      res.status(400).send(e.message)
+    }
+    res.status(500).send('An unexpected error occurred.')
+  }
+});
 
-// // router.get('/', (_req, res) => {
-// //   res.send(diaryServices.getEntriesWithoutSensitiveInfo())
-// // })
-
-// // router.get('/:id', (req, res) => {
-// //   const diary = diaryServices.findById(+req.params.id)
-// //   // const diary = diaryServices.findById(Number(req.params.id))
-// //   return (diary != null)
-// //     ? res.send(diary)
-// //     : res.sendStatus(404)
-// //   // res.send(diary?.weather)
-// // })
-
-// // router.post('/', (req, res) => {
-// //   try {
-// //     const newDiaryEntry = toNewDiaryEntry(req.body)
-
-// //     const addedDiaryEntry = diaryServices.addDiary(newDiaryEntry)
-
-// //     res.json(addedDiaryEntry)
-// //   } catch (e) {
-// //     if (e instanceof Error) {
-// //       res.status(400).send(e.message)
-// //     }
-// //     res.status(400).send('An unexpected error occurred.')
-// //   }
-// // })
-
-// export default router
+export default router;

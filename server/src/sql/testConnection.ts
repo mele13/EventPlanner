@@ -1,9 +1,10 @@
-import { db } from "./db";
+import { AppDataSource } from "./db";
 
 async function testConnection() {
   try {
-    const result = await db.one('SELECT $1 AS value', 123);
-    console.log('Successful connection:', result.value);
+    // Intenta conectarte a la base de datos
+    await AppDataSource.connect();
+    console.log('Successful connection');
   } catch (e) {
     if (e instanceof Error) {
       console.error('Error connecting to the database:', e.message);
@@ -11,7 +12,7 @@ async function testConnection() {
       console.error('Error connecting to the database');
     }
   } finally {
-    db.$pool.end(); // Close connection
+    await AppDataSource.close(); // Cierra la conexión
   }
 }
 

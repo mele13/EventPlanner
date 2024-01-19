@@ -1,6 +1,6 @@
 import express from 'express'
 import * as diaryServices from '../services/diaryServices'
-import toNewDiaryEntry from '../utils'
+import toNewDiaryEntry from '../utils/diaryUtils'
 
 const router = express.Router()
 
@@ -31,5 +31,7 @@ router.post('/', (req, res) => {
     res.status(400).send('An unexpected error occurred.')
   }
 })
+
+// printRoutes("Diaries: ", router)
 
 export default router

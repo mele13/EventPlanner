@@ -1,22 +1,19 @@
-import { IDatabase, IMain } from 'pg-promise'
-import pgPromise from 'pg-promise'
 import { config } from 'dotenv';
 import path from 'path';
+import { DataSource } from 'typeorm';
 
-const pgp: IMain = pgPromise();
-const envPath = path.resolve(__dirname, '../../.env');
+const envPath = path.resolve(__dirname, '../../../.env');
 
 config(); // Loading .env config
 config({ path: envPath });
 
 // Connection configuration
-const connectionOptions = {
+const AppDataSource = new DataSource({
+  type: "postgres",
   port: parseInt(process.env.DB_PORT || '5432', 10),
   database: process.env.DB_DBNAME,
-  user: process.env.DB_USER,
+  username: process.env.DB_USER,
   password: process.env.DB_PASS,
-};
+})
 
-const db: IDatabase<{}> = pgp(connectionOptions);
-
-export { db };
+export { AppDataSource };
