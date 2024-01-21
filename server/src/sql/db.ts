@@ -2,7 +2,7 @@ import { config } from 'dotenv';
 import path from 'path';
 import { DataSource } from 'typeorm';
 
-const envPath = path.resolve(__dirname, '../../../.env');
+const envPath = path.resolve(__dirname, '../../.env');
 
 config(); // Loading .env config
 config({ path: envPath });
