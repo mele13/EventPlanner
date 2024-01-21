@@ -10,8 +10,9 @@
     "start": "node build/index.js",
     "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "testdb": "./node_modules/.bin/ts-node-dev ./src/sql/testConnection.ts",
     "typeorm": "typeorm-ts-node-esm",
-    "migrate:create": "typeorm migration:create \"./typeorm/migrations/",
+    "migrate:create": "typeorm migration:create \"src/sql/migrations/",
     "migrate:up": "ts-node --transpile-only ./node_modules/typeorm/cli.js migration:run -d src/sql/db.ts",
     "migrate:down": "ts-node --transpile-only ./node-modules/typeorm/cli.js migration:revert"
   },

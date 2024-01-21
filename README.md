@@ -66,14 +66,14 @@ HTML, CSS, and JavaScript for frontend development; Node.js for backend; Postgre
 A careful evaluation will be conducted during the application deployment phase, selecting efficient web servers and cloud storage options based on rigorous criteria such as performance, scalability, and security.
 
 ## Commands (server-side)
-To execute the following commands, the server-side of the application must be accessed. This can be done either by accessing the container (```bash exec -it eventplanner-server-1 bash```) or the folder (```cd server```).
+To execute the following commands, the server-side of the application must be accessed. This can be done either by accessing the container (```docker exec -it eventplanner-server-1 bash```) or the folder (```cd server```).
 - To test the database connection:
   ```bash
-  ./node_modules/.bin/ts-node-dev ./src/sql/testConnection.ts
+  npm run testdb
   ```
 - To create a migration:
   ```bash
-  npm run typeorm migration:create src/sql/migrations/<migration_name>
+  npm run typeorm migrate:create <migration_name>
   ```
 - To run a migration:
   ```bash
