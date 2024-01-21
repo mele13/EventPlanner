@@ -10,7 +10,8 @@
 
 # production
 /build
-/sql/migrations
+migrations/
+migrations/**/
 
 # misc
 .DS_Store
