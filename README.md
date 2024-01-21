@@ -17,7 +17,7 @@ This repository contains the source code and documentation for an event planning
   - [Methodology](#methodology)
   - [Technology Stack](#technology-stack)
   - [Deployment](#deployment)
-  - [Commands](#commands)
+  - [Commands (server-side)](#commands-server-side)
   - [Disclaimer](#disclaimer)
 
 ## Technologies Used
@@ -65,20 +65,18 @@ HTML, CSS, and JavaScript for frontend development; Node.js for backend; Postgre
 ## Deployment
 A careful evaluation will be conducted during the application deployment phase, selecting efficient web servers and cloud storage options based on rigorous criteria such as performance, scalability, and security.
 
-## Commands
+## Commands (server-side)
+To execute the following commands, the server-side of the application must be accessed. This can be done either by accessing the container (```bash exec -it eventplanner-server-1 bash```) or the folder (```cd server```).
 - To test the database connection:
   ```bash
-  cd server
   ./node_modules/.bin/ts-node-dev ./src/sql/testConnection.ts
   ```
 - To create a migration:
   ```bash
-  cd server
   npm run typeorm migration:create src/sql/migrations/<migration_name>
   ```
 - To run a migration:
   ```bash
-  cd server
   npm run migrate:up
   ```
 
