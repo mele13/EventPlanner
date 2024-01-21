@@ -66,10 +66,20 @@ HTML, CSS, and JavaScript for frontend development; Node.js for backend; Postgre
 A careful evaluation will be conducted during the application deployment phase, selecting efficient web servers and cloud storage options based on rigorous criteria such as performance, scalability, and security.
 
 ## Commands
-- To test the database connection, use the following command:
+- To test the database connection:
   ```bash
   cd server
   ./node_modules/.bin/ts-node-dev ./src/sql/testConnection.ts
+  ```
+- To create a migration:
+  ```bash
+  cd server
+  npm run typeorm migration:create src/sql/migrations/<migration_name>
+  ```
+- To run a migration:
+  ```bash
+  cd server
+  npm run migrate:up
   ```
 
 ## Disclaimer
