@@ -1,34 +1,26 @@
-import jwt, { Secret, JwtPayload } from 'jsonwebtoken'
-import { Request, Response, NextFunction } from 'express'
+import { NextFunction } from "express";
 
-export const SECRET_KEY: Secret = process.env.SECRET_KEY || 'abece';
-// export const SECRET_KEY: Secret = 'aabbccddee';
+const jwt = require("jsonwebtoken");
 
-export interface CustomRequest extends Request {
-  token: string | JwtPayload;
-}
+module.exports = (req: any, res: any, next: NextFunction) => {
+  var token = req.headers.authorization.split(' ')[1]
+  console.log("token ", token)
+  if (!token) {
+    return res.status(401).send('Access denied')
+  }
 
-export interface CustomRequest extends Request {
- token: string | JwtPayload
-}
-
-export const auth = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const token = req.header('Authorization')?.replace('Bearer ', '')
-    
-    console.log('Token received ', token)
-    if (!token) {
-      console.log("no token")
-      throw new Error()
-    }
-    console.log("si token")
-    const decoded = jwt.verify(token, SECRET_KEY);
-    (req as CustomRequest).token = decoded;
+    console.log("before verify", token, "aa", process.env.SECRET_KEY)
+    const verified = jwt.verify(token, process.env.SECRET_KEY)
+    console.log("after verify")
+    req.user = verified
+    console.log("last verify")
 
-    console.log("antes next")
     next()
-    console.log("despues next")
-  } catch (err) {
-    res.status(401).send('Please authenticate')
+    console.log("next verify")
+    
+  } catch (e) {
+    console.error('Error during token verification:', e);
+    return res.status(400).send('Invalid token')
   }
 }
