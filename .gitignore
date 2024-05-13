@@ -1,2 +1,8 @@
 # misc
 .env
+d*.txt
+_ide*
+_ph*
+.vscode
+.users*
+node_modules

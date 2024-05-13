@@ -1,28 +1,7 @@
-version: "3.8"
-
 services:
-  client:
-    build: ./client
-    environment:
-      WATCHPACK_POLLING: "true"
-    ports:
-      - "${APP_PORT}:3000"
-    volumes:
-      - "./client:/app"
-      - "/app/node_modules"
-
-  server:
-    build: ./server
-    ports:
-      - "${API_PORT}:3001"
-    volumes:
-      - "./server:/api"
-      - "/api/node_modules"
-    depends_on:
-      - db
-
   db:
-    image: postgres:latest
+    image: postgres:16.3
+    container_name: evplanner-db
     ports:
       - "${DB_PORT}:5432"
     restart: always
@@ -31,7 +10,47 @@ services:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASS}
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - evplanner-network
+
+  server:
+    image: evplanner-api:latest
+    container_name: evplanner-sv
+    ports:
+      - "${API_PORT}:3004"
+    volumes:
+      - "./server:/api"
+    environment:
+      - DB_URL=jdbc:postgresql://evplanner-db:${DB_PORT}/${DB_DBNAME}
+      - DB_USER_NAME=${DB_USER}
+      - DB_PASSWORD=${DB_PASS}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
+      # - AUTH_TOKEN_HEADER=${AUTH_TOKEN_HEADER}
+      # - AUTH_TOKEN=${AUTH_TOKEN}
+    depends_on:
+      - db
+    networks:
+      - evplanner-network
+
+  # client:
+  #   image: client:latest
+  #   container_name: evplanner-app
+  #   environment:
+  #     - CHOKIDAR_USEPOLLING=true
+  #   ports:
+  #     - "${APP_PORT}:82"
+  #   volumes:
+  #     - "./client:/app"
+  #     - "/app/node_modules"
+  #   depends_on:
+  #     - server
+  #   networks:
+  #     - evplanner-network
 
 volumes:
-  postgres-data:
+  pgdata:
+
+networks:
+  evplanner-network:
+    driver: bridge

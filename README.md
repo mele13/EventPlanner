@@ -23,12 +23,11 @@ This repository contains the source code and documentation for an event planning
 ## Technologies Used
 The project involves the use of the following technologies:
 - Frontend: React Native (for web deployment and future mobile application)
-- Backend: Node.js
+- Backend: Spring Boot
 - Database: PostgreSQL
 
 ## Prerequisites
 Ensure that you have the following dependencies installed to run the project:
-- Node.js
 - Docker
 - Docker Compose
 
@@ -60,7 +59,7 @@ The main objectives of the project are:
 The development will follow an agile methodology, specifically utilizing the Scrum framework. The application will be built modularly, effectively separating frontend and backend logic to ensure flexibility and scalability. Cutting-edge technologies, including HTML, CSS, and JavaScript, will be employed for frontend development.
 
 ## Technology Stack
-HTML, CSS, and JavaScript for frontend development; Node.js for backend; PostgreSQL for the database; JWT (JSON Web Token) or a similar approach for secure user authentication.
+HTML, CSS, and JavaScript for frontend development; Spring Boot for backend; PostgreSQL for the database; JWT (JSON Web Token) or a similar approach for secure user authentication.
 
 ## Deployment
 A careful evaluation will be conducted during the application deployment phase, selecting efficient web servers and cloud storage options based on rigorous criteria such as performance, scalability, and security.
