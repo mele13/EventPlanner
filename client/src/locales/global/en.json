@@ -1,0 +1,21 @@
+{
+  "//": "Global",
+  "step": "Step",
+  "back": "Back",
+  "next": "Next",
+  "submit": "Submit",
+  "loading": "Loading...",
+
+  "//": "Auth",
+  "login": "Login",
+  "signup": "Sign Up",
+
+  "//": "Navbar",
+  "home": "Home",
+
+  "//": "User",
+  "my_events": "My events",
+
+  "//": "aaa",
+  "aa": "aa"
+}

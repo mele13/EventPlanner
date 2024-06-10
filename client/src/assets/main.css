@@ -1,0 +1,78 @@
+@import './base.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--color-background) !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ----- Fonts ----- */
+.italic { font-style: italic; }
+.bold { font-weight: bold; }
+
+/* ----- Colors ----- */
+.negative { color: var(--color-negative); }
+.positive { color: var(--color-positive); }
+.noresp { color: var(--color-grey); }
+.warning { color: var(--color-warning); }
+.obl { color: var(--color-tertiary); }
+
+/* Styles */
+.pointer {
+  cursor: pointer;
+}
+
+/* Override bootstrap */
+.form-check-input:checked {
+  background-color: var(--color-tertiary) !important;
+  border-color: var(--color-tertiary) !important;
+}
+
+.form-control:focus, .form-check-input[type=checkbox]:focus {
+  border-color: var(--color-grey) !important;
+  box-shadow: none !important;
+}
+
+/* Override vue datepicker */
+.dp__range_end, .dp__range_start, .dp__active_date, .dp__action_buttons .dp__action_select {
+  background-color: var(--color-tertiary) !important;
+}
+
+.dp__today {
+  border: 1px solid var(--color-tertiary) !important;
+}
+
+/* Border */
+.br-10 {
+  border-radius: 10px;
+}
+
+.noresp05-border {
+  border: 2px solid #8994991f;
+}
+
+.noresp-border {
+  border: 1px solid var(--color-grey);
+}
+
+/* Widths & heights */
+.w-65 {
+  width: 65% !important;
+}
+
+/* Margins & paddings */
+.ml-2r { margin-left: 0.2rem; }
+.ml-0i { margin-left: 0 !important; }
+
+/* Alignments */
+.sup { vertical-align: baseline; }

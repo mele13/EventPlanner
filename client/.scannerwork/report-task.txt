@@ -1,0 +1,6 @@
+projectKey=sdadkfa
+serverUrl=http://localhost:9000
+serverVersion=10.5.0.89998
+dashboardUrl=http://localhost:9000/dashboard?id=sdadkfa
+ceTaskId=a0711bef-28f1-407b-9434-54617a378774
+ceTaskUrl=http://localhost:9000/api/ce/task?id=a0711bef-28f1-407b-9434-54617a378774

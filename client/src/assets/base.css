@@ -1,0 +1,35 @@
+/* color palette */
+:root {
+  --dark-purple: #433D54;
+  --light-purple: #CFC8E2;
+  --fuccsia: #FF2C81;
+  --pastel-pink: #FFB0CF;
+  --off-white: #F8F7F7;
+  --emerald-green: #86DBA3;
+  --crimson: #E35C77;
+  --gold: #FFC107;
+  --platinum: #899499;
+  --fuccsia05: #ff2c805a;
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--off-white);
+  --color-primary: var(--dark-purple);
+  --color-secondary: var(--light-purple);
+  --color-tertiary: var(--fuccsia);
+  --color-tertiary05: var(--fuccsia05);
+  --color-quaternary: var(--pastel-pink);
+  --color-negative: var(--crimson);
+  --color-positive: var(--emerald-green);
+  --color-warning: var(--gold);
+  --color-grey: var(--platinum);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--off-white);
+  }
+}
+
+
