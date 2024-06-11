@@ -1,5 +1,5 @@
 <template>
-  <LangLoadSpinner :locale="locale" module="event-creation" />
+  <LangLoadSpinner :modules="modules" />
   <form class="container d-flex flex-column align-items-center">
     <!-- Steps progress bar -->
     <div class="w-75">
@@ -25,11 +25,11 @@
       :selectedEvent="selectedEvent"
     />
     <EventDataForm v-if="currentStep === 1" />
-    <EventAddress v-if="currentStep === 2" />
-    <EventAddress v-if="currentStep === 3" /> <!-- financial: ticket price, sell limit, sell date, refunds policy -->
-    <EventAddress v-if="currentStep === 4" /> <!-- faq -->
-    <EventAddress v-if="currentStep === 5" /> <!-- menu -->
-    <EventAddress v-if="currentStep === 6" /> <!-- confirm: event_contact  -->
+    <EventLocation v-if="currentStep === 2" />
+    <EventFinancial v-if="currentStep === 3" />
+    <EventLocation v-if="currentStep === 4" /> <!-- faq -->
+    <EventLocation v-if="currentStep === 5" /> <!-- menu -->
+    <EventLocation v-if="currentStep === 6" /> <!-- confirm: event_contact  -->
 
     <!-- Submit event -->
     <div class="buttons">
@@ -45,8 +45,9 @@ import { defineComponent, ref } from 'vue';
 import LangLoadSpinner from '@/components/LangLoadSpinner.vue';
 import EventTypeSelector from '@/components/EventTypeSelector.vue';
 import EventSteps from '@/components/EventCreationSteps.vue';
-import EventDataForm from '@/components/forms/event-creation/EventCreationData.vue';
-import EventAddress from '@/components/forms/event-creation/EventAddress.vue';
+import EventDataForm from '@/components/forms/event-creation/EventData.vue';
+import EventLocation from '@/components/forms/event-creation/EventLocation.vue';
+import EventFinancial from '@/components/forms/event-creation/EventFinancial.vue';
 
 // Import icons
 import ServiceLine from '~icons/ri/customer-service-2-line';
@@ -60,16 +61,19 @@ import Mail from '~icons/tabler/mail';
 export default defineComponent({
   components: {
     EventSteps,
-    EventAddress,
+    EventLocation,
     EventDataForm,
+    EventFinancial,
+    LangLoadSpinner,
     EventTypeSelector,
   },
   setup() {
     const currentStep = ref(0);
     const selectedEvent = ref<number | null>(null);
     const selectedEventId = ref<string | null>(null);
-    const locale = ref('en');
+    const modules = ['event-creation', 'location', 'financial'];
 
+    // Event creation steps
     const steps = [
       { label: 'event_type', component: ServiceLine },
       { label: 'event_data', component: EventData },
@@ -95,14 +99,13 @@ export default defineComponent({
     const handleEventSelected = (index: number, id: string) => {
       selectedEvent.value = index;
       selectedEventId.value = id;
-      console.log('Selected: ', selectedEvent.value, selectedEventId.value);
     }
 
     return {
       selectedEvent,
       currentStep,
       steps,
-      locale,
+      modules,
       nextStep,
       prevStep,
       setCurrentStep,

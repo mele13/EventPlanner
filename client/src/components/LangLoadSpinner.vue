@@ -9,15 +9,12 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { loadLangConstants } from '@/plugins/i18n';
+import type { PropType } from 'vue';
 
 export default defineComponent({
   props: {
-    locale: {
-      type: String,
-      required: true,
-    },
-    module: {
-      type: String,
+    modules: {
+      type: [String, Array] as PropType<string | string[]>,
       required: true,
     },
   },
@@ -25,7 +22,7 @@ export default defineComponent({
     const isLoading = ref(true);
 
     const loadMessages = async () => {
-      await loadLangConstants(props.locale, props.module);
+      await loadLangConstants(props.modules);
       isLoading.value = false;
       emit('loaded');
     };

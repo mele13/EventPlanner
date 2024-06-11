@@ -226,6 +226,7 @@
             <TooltipHint :content="$t('event_credential_role_h')"/>
           </label>
           <input v-model="credentialRole" type="text" class="form-control" id="credential-role" />
+          <!-- TODO: one credential per role type?? max users per role?? i can invite 10 admins, 70 normal users, etc -->
         </div>
       </div>
     </div>
@@ -233,26 +234,25 @@
     <!-- Notifications -->
     <div id="access">
       <div class="d-flex align-items-center mt-3 mb-1">
-        <i-ri:lock-2-line class="tt-icon" />
-        <h4 class="mb-0">{{ $t('event_access') }}</h4>
+        <i-material-symbols:notifications-active-outline class="tt-icon" />
+        <h4 class="mb-0">{{ $t('event_notifications') }}</h4>
       </div>
 
-      <!-- Are notifications needed? -->
-      <!-- Notification per dates: start, end, etc -->
+      <!-- TODO: Are notifications needed? | Notification per dates: start, end, etc -->
     </div>
 
     <!-- Tags -->
     <div id="access">
       <div class="d-flex align-items-center mt-3 mb-1">
-        <i-ri:lock-2-line class="tt-icon" />
-        <h4 class="mb-0">{{ $t('event_access') }}</h4>
+        <i-mdi:tag-plus-outline class="tt-icon" />
+        <h4 class="mb-0">{{ $t('event_tags') }}</h4>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from 'vue';
+import { defineComponent, ref } from 'vue';
 import TooltipHint from '@/components/generators/TooltipHintGenerator.vue';
 import DatePicker from '@/components/generators/DatePickerGenerator.vue';
 import Checkbox from '@/components/generators/CheckboxGenerator.vue';

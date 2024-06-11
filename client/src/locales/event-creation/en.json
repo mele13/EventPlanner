@@ -73,8 +73,15 @@
   "event_credential_role": "Credential role",
   "event_credential_role_h": "Specify the role for the user if this is an authentication credential.",
 
+  "//": "Event notifications",
+  "event_notifications": "Event notifications",
+
+  "//": "Event tags",
+  "event_tags": "Event tags",
+
   "//": "Event location",
-  "aa": "aa",
+  "event_location_tt": "Event location",
+  "event_location_venue": "Is this event hosted on a venue?",
 
   "//": "Event money",
   "aa": "aa",

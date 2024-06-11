@@ -2,60 +2,57 @@ package com.server.domains;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import jakarta.persistence.*;
+import com.server.domains.enums.Role;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 @Table(name = "user")
 public class User implements UserDetails {
+
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(nullable = false)
+  @GeneratedValue()
   private Integer id;
 
-  @Column(unique = true, length = 100, nullable = false)
-  private String email;
-
-  @Column(nullable = false)
-  private String password;
-
-  @Column(nullable = false)
-  private String username;
-
-  @Column(nullable = false)
-  private String name;
-
-  @Column(nullable = true)
-  private String surname;
-
-  @Column(nullable = true)
-  private String phone;
-
   @CreationTimestamp
-  @Column(updatable = false, name = "created_at")
+  @Temporal(TemporalType.TIMESTAMP)
   private Date createdAt;
 
   @UpdateTimestamp
-  @Column(name = "updated_at")
+  @Temporal(TemporalType.TIMESTAMP)
   private Date updatedAt;
 
-  @Override
+  private String name;
+  private String surname;
+  private String email;
+  private String password;
+  private String username;
+  private String phone;
+
+  @Enumerated(EnumType.STRING)
+  private Role role;
+
+  @OneToMany
   public Collection<? extends GrantedAuthority> getAuthorities() {
-    return List.of();
+    return role.getAuthorities();
   }
 
   public String getPassword() {
     return password;
-  }
-
-  @Override
-  public String getUsername() {
-    return email;
   }
 
   @Override
@@ -76,55 +73,5 @@ public class User implements UserDetails {
   @Override
   public boolean isEnabled() {
     return true;
-  }
-
-  public Integer getId() {
-    return id;
-  }
-
-  public User setId(Integer id) {
-    this.id = id;
-    return this;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public User setName(String name) {
-    this.name = name;
-    return this;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public User setEmail(String email) {
-    this.email = email;
-    return this;
-  }
-
-  public User setPassword(String password) {
-    this.password = password;
-    return this;
-  }
-
-  public Date getCreatedAt() {
-    return createdAt;
-  }
-
-  public User setCreatedAt(Date createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-  public Date getUpdatedAt() {
-    return updatedAt;
-  }
-
-  public User setUpdatedAt(Date updatedAt) {
-    this.updatedAt = updatedAt;
-    return this;
   }
 }
