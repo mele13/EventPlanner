@@ -1,24 +1,15 @@
 package com.server.auth.requests;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class LoginRequest {
   private String email;
   private String password;
-
-  public String getEmail() {
-    return email;
-  }
-
-  public LoginRequest setEmail(String email) {
-    this.email = email;
-    return this;
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public LoginRequest setPassword(String password) {
-    this.password = password;
-    return this;
-  }
 }

@@ -32,7 +32,7 @@ public class JwtService {
   }
 
   public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-    final Claims claims = extractAllClaims(token);
+    final Claims claims = getAllClaimsFromToken(token);
     return claimsResolver.apply(claims);
   }
 
@@ -73,9 +73,9 @@ public class JwtService {
     return extractClaim(token, Claims::getExpiration);
   }
 
-  private Claims extractAllClaims(String token) {
+  private Claims getAllClaimsFromToken(String token) {
     return Jwts
-        .parserBuilder()
+        .parser()
         .setSigningKey(getSignInKey())
         .build()
         .parseClaimsJws(token)
