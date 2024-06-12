@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:16.3
-    container_name: evplanner-db
+    container_name: evplannerdb
     ports:
       - "${DB_PORT}:5432"
     restart: always
@@ -22,7 +22,7 @@ services:
     volumes:
       - "./server:/api"
     environment:
-      - DB_URL=jdbc:postgresql://evplanner-db:${DB_PORT}/${DB_DBNAME}
+      - DB_URL=jdbc:postgresql://evplannerdb:${DB_PORT}/${DB_DBNAME}
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
       - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}

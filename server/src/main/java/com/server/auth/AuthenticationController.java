@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-// import io.swagger.v3.oas.annotations.tags.Tag;
 import com.server.auth.requests.LoginRequest;
 import com.server.auth.requests.RegisterRequest;
 import com.server.auth.responses.AuthenticationResponse;
@@ -19,7 +18,6 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-// @Tag(name = "Authentication")
 @RequestMapping("/auth")
 public class AuthenticationController {
 
