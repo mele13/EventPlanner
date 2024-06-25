@@ -37,6 +37,7 @@ public class SecurityConfiguration {
   private final LogoutHandler logoutHandler;
   private static final String[] WHITELIST_URLS = {
     "/api/auth/**",
+    "/api/users/**",
   };
 
   @Bean

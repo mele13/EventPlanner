@@ -1,6 +1,4 @@
-package com.server.auth.requests;
-
-import com.server.domains.enums.Role;
+package com.server.domains.requests.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,11 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterRequest {
+public class UpdateUserRequest {
   private String name;
   private String surname;
-  private String email;
   private String alias;
-  private String password;
-  private Role role;
+  private String phone;
 }

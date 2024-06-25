@@ -35,9 +35,14 @@ public class AuthenticationService {
   private final AuthenticationManager authenticationManager;
 
   public AuthenticationResponse register(RegisterRequest request) {
+    if (userRepository.existsByEmail(request.getEmail())) {
+      throw new IllegalStateException("Email already exists");
+    }
+
     User user = User.builder()
         .name(request.getName())
         .surname(request.getSurname())
+        .alias(request.getAlias())
         .email(request.getEmail())
         .password(passwordEncoder.encode(request.getPassword()))
         .role(request.getRole())
@@ -84,8 +89,7 @@ public class AuthenticationService {
   private void revokeAllUserTokens(User user) {
     List<Token> validUserTokens = tokenRepository.findAllValidTokensByUser(user.getId());
 
-    if (validUserTokens.isEmpty())
-      return;
+    if (validUserTokens.isEmpty()) return;
 
     validUserTokens.forEach(token -> {
       token.setExpired(true);

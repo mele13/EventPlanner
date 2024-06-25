@@ -14,13 +14,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.server.repositories.UserRepository;
 import com.server.security.ApplicationAuditAware;
 
+import lombok.RequiredArgsConstructor;
+
 @Configuration
+@RequiredArgsConstructor
 public class ApplicationConfiguration {
   private final UserRepository userRepository;
-
-  public ApplicationConfiguration(UserRepository userRepository) {
-    this.userRepository = userRepository;
-  }
 
   @Bean
   UserDetailsService userDetailsService() {

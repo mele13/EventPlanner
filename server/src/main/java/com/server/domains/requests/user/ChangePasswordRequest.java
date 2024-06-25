@@ -1,4 +1,4 @@
-package com.server.auth.requests;
+package com.server.domains.requests.user;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -2,6 +2,7 @@ package com.server.domains;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -21,7 +22,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "\"user\"")
+@Table(name = "\"user\"", uniqueConstraints = {
+  @UniqueConstraint(columnNames = "email")
+})
 public class User implements UserDetails {
 
   @Id
@@ -40,19 +43,32 @@ public class User implements UserDetails {
   private String surname;
   private String email;
   private String password;
-  private String username;
+  private String alias; // Username - UserDetails "reserved" (user...), thus alias
   private String phone;
 
   @Enumerated(EnumType.STRING)
   private Role role;
+
+  @Lob
+  private byte[] image;
+
+  @OneToMany(mappedBy = "user")
+  private List<Comment> comments;
 
   @OneToMany
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return role.getAuthorities();
   }
 
+  @Override
   public String getPassword() {
     return password;
+  }
+
+  @Override
+  public String getUsername() {
+    // Ensuring UserDetails getUsername() for JWT auth
+    return email;
   }
 
   @Override
