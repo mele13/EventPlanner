@@ -76,3 +76,17 @@ body {
 
 /* Alignments */
 .sup { vertical-align: baseline; }
+
+/* Buttons */
+.btn-evt {
+  background-color: var(--color-tertiary) !important;
+  border-color: var(--color-tertiary) !important;
+  color: white !important;
+}
+
+.btn-evt-act {  
+  background-color: var(--color-tertiary) !important;
+  border-color: var(--color-tertiary) !important;
+  color: white !important;
+  font-size: 1.25rem !important;
+}

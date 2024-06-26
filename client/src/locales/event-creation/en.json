@@ -17,6 +17,7 @@
   "event_name": "Name",
   "event_description": "Description",
   "event_lang": "Language",
+  "event_owner": "Owner",
   "event_attendance": "Type of attendance",
   "event_live": "This is a live event",
   "event_live_h": "A live event is a real-time broadcast or stream, such as a televised show, online webinar, or live performance.",

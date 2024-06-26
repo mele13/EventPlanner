@@ -1,24 +1,18 @@
-package com.server.domains.requests.event;
+package com.server.domains.responses;
+
+import com.server.domains.enums.*;
+import lombok.Builder;
+import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
 
-import com.server.domains.enums.AttendanceType;
-import com.server.domains.enums.Currency;
-import com.server.domains.enums.EventState;
-import com.server.domains.enums.EventType;
-import com.server.domains.enums.Lang;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 @Data
 @Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class CreateEventRequest {
+public class EventResponse {
+  private Integer id;
+  private Date createdAt;
+  private Date updatedAt;
   private Integer createdBy;
   private Integer ownedBy;
   private String name;
@@ -32,7 +26,7 @@ public class CreateEventRequest {
   private Date startDate;
   private Date endDate;
   private boolean live;
-  private Integer credetialsId;
+  private Integer credentialsId;
   private Integer limitNumber;
   private Double ticketPrice;
   private Currency ticketCurrency;

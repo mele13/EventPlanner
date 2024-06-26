@@ -9,9 +9,8 @@ import org.springframework.stereotype.Service;
 import com.server.domains.User;
 import com.server.domains.requests.user.ChangePasswordRequest;
 import com.server.domains.requests.user.ChangeRoleRequest;
-import com.server.domains.requests.user.UserRequest;
 import com.server.domains.requests.user.UpdateUserRequest;
-import com.server.domains.responses.GetUserResponse;
+import com.server.domains.responses.UserResponse;
 import com.server.repositories.TokenRepository;
 import com.server.repositories.UserRepository;
 
@@ -42,9 +41,9 @@ public class UserService {
     userRepository.save(user);
   }
 
-  public void deleteUser(UserRequest request) {
-    tokenRepository.deleteByUserId(request.getId());
-    userRepository.findById(request.getId()).ifPresentOrElse(userRepository::delete, () -> {
+  public void deleteUser(Integer id) {
+    tokenRepository.deleteByUserId(id);
+    userRepository.findById(id).ifPresentOrElse(userRepository::delete, () -> {
       throw new IllegalStateException("User not found");
     });
   }
@@ -68,11 +67,11 @@ public class UserService {
     userRepository.save(user);
   }
 
-  public GetUserResponse getUser(UserRequest request) {
-    User user = userRepository.findById(request.getId())
+  public UserResponse getUser(Integer id) {
+    User user = userRepository.findById(id)
       .orElseThrow(() -> new IllegalStateException("User not found"));
     
-    return GetUserResponse.builder()
+    return UserResponse.builder()
       .id(user.getId())
       .name(user.getName())
       .username(user.getUsername())

@@ -33,9 +33,9 @@
 
     <!-- Submit event -->
     <div class="buttons">
-      <button v-if="currentStep > 0" type="button" class="btn btn-primary" @click="prevStep">{{ $t('back') }}</button>
-      <button v-if="currentStep < steps.length - 1" type="button" class="btn btn-primary" @click="nextStep">{{ $t('next') }}</button>
-      <button v-else type="submit" class="btn btn-primary">{{ $t('submit') }}</button>
+      <button v-if="currentStep > 0" type="button" class="btn btn-evt" @click="prevStep">{{ $t('back') }}</button>
+      <button v-if="currentStep < steps.length - 1" type="button" class="btn btn-evt" @click="nextStep">{{ $t('next') }}</button>
+      <button v-else type="submit" class="btn btn-evt">{{ $t('submit') }}</button>
     </div>
   </form>
 </template>

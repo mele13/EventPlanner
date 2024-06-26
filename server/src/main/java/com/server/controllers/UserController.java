@@ -7,6 +7,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.server.domains.requests.user.ChangePasswordRequest;
 import com.server.domains.requests.user.ChangeRoleRequest;
-import com.server.domains.requests.user.UserRequest;
 import com.server.domains.requests.user.UpdateUserRequest;
-import com.server.domains.responses.GetUserResponse;
+import com.server.domains.responses.UserResponse;
 import com.server.services.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -28,10 +28,10 @@ public class UserController {
   
   private final UserService userService;
 
-  @DeleteMapping()
+  @DeleteMapping("/{id}")
   @PreAuthorize("hasRole('ADMIN')")
-  public ResponseEntity<String> deleteUser(@RequestBody UserRequest request) {
-    userService.deleteUser(request);
+  public ResponseEntity<String> deleteUser(@PathVariable("id") Integer id) {
+    userService.deleteUser(id);
     return ResponseEntity.ok().build();
   }
 
@@ -49,10 +49,10 @@ public class UserController {
     return ResponseEntity.ok().build();
   }
 
-  @GetMapping()
+  @GetMapping("/{id}")
   @PreAuthorize("isAuthenticated() or hasRole('ADMIN')")
-  public ResponseEntity<GetUserResponse> getUser(UserRequest request) {
-    return ResponseEntity.ok(userService.getUser(request));
+  public ResponseEntity<UserResponse> getUser(@PathVariable("id") Integer id) {
+    return ResponseEntity.ok(userService.getUser(id));
   }
 
   @PatchMapping("/change-role")

@@ -34,6 +34,16 @@
         </select>
       </div>
 
+      <!-- Owner -->
+      <div class="form-group py-1">
+        <label for="event-owner">{{ $t('event_owner') }}</label>
+        <select class="form-control" id="event-user">
+          <option></option>
+          <option>user</option>
+          <option>user</option>
+        </select>
+      </div>
+
       <!-- Live event -->
       <Checkbox
         id="live-evt" 

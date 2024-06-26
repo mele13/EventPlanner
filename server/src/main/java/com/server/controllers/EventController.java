@@ -1,26 +1,50 @@
 package com.server.controllers;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.server.domains.requests.event.CreateEventRequest;
+import com.server.domains.requests.event.EventRequest;
+import com.server.domains.responses.EventResponse;
+import com.server.domains.responses.EventStatisticsResponse;
 import com.server.services.EventService;
-
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/events")
 public class EventController {
 
-  private final EventService eventService;
+  private final EventService service;
 
-  @PostMapping("/new")
-  public ResponseEntity<String> createEvent(@RequestBody CreateEventRequest request) {
-    eventService.createEvent(request);
-    return ResponseEntity.ok().build();
+  @GetMapping
+  public ResponseEntity<List<EventResponse>> getAll() {
+    return ResponseEntity.ok(service.getAll());
+  }
+
+  @GetMapping("/{id}")
+  public ResponseEntity<EventResponse> getById(@PathVariable("id") Integer id) {
+    return ResponseEntity.ok(service.getById(id));
+  }
+
+  @PostMapping
+  public ResponseEntity<EventResponse> createEvent(@RequestBody EventRequest request) {
+    return ResponseEntity.ok(service.createEvent(request));
+  }
+
+  @PutMapping()
+  public ResponseEntity<EventResponse> updateEvent(@RequestBody EventRequest request) {
+    return ResponseEntity.ok(service.updateEvent(request));
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> deleteEvent(@PathVariable("id") Integer id) {
+    service.deleteEvent(id);
+    return ResponseEntity.noContent().build();
+  }
+
+  @GetMapping("/{id}/statistics")
+  public EventStatisticsResponse getEventStatistics(@PathVariable("id") Integer id) {
+    return service.getEventStatistics(id);
   }
 }

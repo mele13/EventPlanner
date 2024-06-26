@@ -1,4 +1,4 @@
-package com.server.domains.requests.user;
+package com.server.domains.requests.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserRequest {
-  private Integer id;  
+public class TagRequest {
+  private Integer id;
+  private String name;
+  private String shortName;
 }

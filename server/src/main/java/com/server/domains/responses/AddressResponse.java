@@ -1,16 +1,17 @@
-package com.server.domains.requests.address;
+package com.server.domains.responses;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddressRequest {
-  private Integer id; // Editing
+public class AddressResponse {
+  private Integer id;
   private String street;
   private String number;
   private String postalCode;
