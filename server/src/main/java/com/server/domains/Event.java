@@ -79,6 +79,7 @@ public class Event {
   private Currency ticketCurrency;
   private Date editLimit;
   private Date sellLimit;
+  private boolean userCanEdit;
   private Date userEditLimit;
   private boolean notification;
   private Integer pageViews;
@@ -96,6 +97,8 @@ public class Event {
   private EventState state;
   
   private String refundsPolicy;
+  private boolean isPrivate;
+  private boolean allowCommentsBeforeStart;
 
   @ManyToMany
   @JoinTable(
