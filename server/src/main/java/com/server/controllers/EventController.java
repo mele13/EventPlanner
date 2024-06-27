@@ -1,5 +1,6 @@
 package com.server.controllers;
 
+import com.server.domains.requests.GeneralRequest;
 import com.server.domains.requests.event.EventRequest;
 import com.server.domains.responses.EventResponse;
 import com.server.domains.responses.EventStatisticsResponse;
@@ -38,8 +39,8 @@ public class EventController {
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<Void> deleteEvent(@PathVariable("id") Integer id) {
-    service.deleteEvent(id);
+  public ResponseEntity<Void> deleteEvent(GeneralRequest request) {
+    service.deleteEvent(request);
     return ResponseEntity.noContent().build();
   }
 
