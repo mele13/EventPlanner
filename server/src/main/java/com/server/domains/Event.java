@@ -6,11 +6,7 @@ import java.util.List;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import com.server.domains.enums.AttendanceType;
-import com.server.domains.enums.Currency;
-import com.server.domains.enums.EventState;
-import com.server.domains.enums.EventType;
-import com.server.domains.enums.Lang;
+import com.server.domains.enums.*;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

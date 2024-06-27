@@ -1,6 +1,8 @@
 package com.server.services;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserService {
   
-  private final UserRepository userRepository;
+  private final UserRepository repository;
   private final TokenRepository tokenRepository;
   private final PasswordEncoder passwordEncoder;
   
@@ -38,12 +40,12 @@ public class UserService {
     }
 
     user.setPassword(passwordEncoder.encode(request.getNewPassowrd()));
-    userRepository.save(user);
+    repository.save(user);
   }
 
   public void deleteUser(Integer id) {
     tokenRepository.deleteByUserId(id);
-    userRepository.findById(id).ifPresentOrElse(userRepository::delete, () -> {
+    repository.findById(id).ifPresentOrElse(repository::delete, () -> {
       throw new IllegalStateException("User not found");
     });
   }
@@ -56,19 +58,19 @@ public class UserService {
     if (request.getAlias() != null) user.setAlias(request.getAlias());
     if (request.getPhone() != null) user.setPhone(request.getPhone());
 
-    userRepository.save(user);
+    repository.save(user);
   }
 
   public void changeRole(ChangeRoleRequest request) {
-    User user = userRepository.findById(request.getId())
+    User user = repository.findById(request.getId())
       .orElseThrow(() -> new IllegalStateException("User not found"));
 
     user.setRole(request.getRole());
-    userRepository.save(user);
+    repository.save(user);
   }
 
   public UserResponse getUser(Integer id) {
-    User user = userRepository.findById(id)
+    User user = repository.findById(id)
       .orElseThrow(() -> new IllegalStateException("User not found"));
     
     return UserResponse.builder()
@@ -80,5 +82,21 @@ public class UserService {
       .phone(user.getPhone())
       .role(user.getRole())
       .build();
+  }
+
+  public List<UserResponse> getAll() {
+    Iterable<User> users = repository.findAll();
+
+    List<UserResponse> userResponses = new ArrayList<>();
+    users.forEach(user -> userResponses.add(UserResponse.builder()
+        .id(user.getId())
+        .name(user.getName())
+        .username(user.getUsername())
+        .email(user.getEmail())
+        .alias(user.getAlias())
+        .phone(user.getPhone())
+        .role(user.getRole())
+        .build()));
+    return userResponses;
   }
 }

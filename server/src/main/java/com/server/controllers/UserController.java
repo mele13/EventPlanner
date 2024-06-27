@@ -1,6 +1,7 @@
 package com.server.controllers;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -53,6 +54,11 @@ public class UserController {
   @PreAuthorize("isAuthenticated() or hasRole('ADMIN')")
   public ResponseEntity<UserResponse> getUser(@PathVariable("id") Integer id) {
     return ResponseEntity.ok(userService.getUser(id));
+  }
+
+  @GetMapping()
+  public ResponseEntity<List<UserResponse>> getAll() {
+    return ResponseEntity.ok(userService.getAll());
   }
 
   @PatchMapping("/change-role")
