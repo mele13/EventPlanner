@@ -1,0 +1,6 @@
+export enum AttendanceType {
+  PHYSICAL = "PHYSICAL",
+  NONPHYSICAL = "NONPHYSICAL",
+  ONLINE = "ONLINE",
+  TELEPHONIC = "TELEPHONIC",
+}

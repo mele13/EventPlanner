@@ -9,7 +9,18 @@
   --crimson: #E35C77;
   --gold: #FFC107;
   --platinum: #899499;
-  --fuccsia05: #ff2c805a;
+  --fuccsia05: #FF2C805A;
+  --violet: #5D308F;
+  --blue: #1466AF;
+  --blue-green: #19A9AF;
+  --green: #11A85A;
+  --yellow-green: #6EBF46;
+  --yellow: rgb(239, 212, 40);
+  --yellow-orange: #FCA217;
+  --orange: #FC7F17;
+  --red-orange: #F7393E;
+  --red: #E71F2A;
+  --red-violet: #A6228F;
 }
 
 /* semantic color variables for this project */
@@ -24,6 +35,17 @@
   --color-positive: var(--emerald-green);
   --color-warning: var(--gold);
   --color-grey: var(--platinum);
+  --color-violet: var(--violet);
+  --color-blue: var(--blue);
+  --color-blue-green: var(--blue-green);
+  --color-green: var(--green);
+  --color-yellow-green: var(--yellow-green);
+  --color-yellow: var(--yellow);
+  --color-yellow-orange: var(--yellow-orange);
+  --color-orange: var(--orange);
+  --color-red-orange: var(--red-orange);
+  --color-red: var(--red);
+  --color-red-violet: var(--red-violet);
 }
 
 @media (prefers-color-scheme: dark) {

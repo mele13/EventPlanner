@@ -32,6 +32,12 @@ body {
   cursor: pointer;
 }
 
+.spinner-container {
+  height: 100vh;
+  background-color: var(--color-background);
+  z-index: 99999;
+}
+
 /* Override bootstrap */
 .form-check-input:checked {
   background-color: var(--color-tertiary) !important;
@@ -70,7 +76,11 @@ body {
   width: 65% !important;
 }
 
-/* Margins & paddings */
+.w-5 {
+  width: 5% !important;
+}
+
+/* Margins, paddings */
 .ml-2r { margin-left: 0.2rem; }
 .ml-0i { margin-left: 0 !important; }
 
@@ -89,4 +99,32 @@ body {
   border-color: var(--color-tertiary) !important;
   color: white !important;
   font-size: 1.25rem !important;
+}
+
+.btn-evt-border {
+  border-color: var(--color-tertiary) !important;
+}
+
+.btn-evt-border:hover {
+  background-color: var(--color-tertiary) !important;
+  color: white !important;
+}
+
+/* Tags */
+.tag-violet { background-color: var(--violet) !important; }
+.tag-blue { background-color: var(--blue) !important; }
+.tag-blue-green { background-color: var(--color-blue-green) !important; }
+.tag-green { background-color: var(--green) !important; }
+.tag-yellow-green { background-color: var(--yellow-green) !important; }
+.tag-yellow { background-color: var(--yellow) !important; }
+.tag-yellow-orange { background-color: var(--yellow-orange) !important; }
+.tag-orange { background-color: var(--orange) !important; }
+.tag-red-orange { background-color: var(--red-orange) !important; }
+.tag-red { background-color: var(--red) !important; }
+.tag-red-violet { background-color: var(--red-violet) !important; }
+
+/* Icons */
+.tt-icon {
+  font-size: 24px;
+  margin-right: 8px;
 }

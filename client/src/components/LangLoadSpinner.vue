@@ -35,11 +35,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.spinner-container {
-  height: 100vh;
-  background-color: var(--color-background);
-  z-index: 99999;
-}
-</style>

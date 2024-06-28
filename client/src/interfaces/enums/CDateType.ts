@@ -1,0 +1,9 @@
+export enum CDateType {
+  EDIT_LIMIT = "EDIT_LIMIT",
+  SELL_LIMIT = "SELL_LIMIT",
+  SELL = "SELL",
+  CUSTOM = "CUSTOM",
+  USER_EDIT = "USER_EDIT",
+  CANCEL = "CANCEL",
+  CANCEL_LIMIT = "CANCEL_LIMIT",
+}
