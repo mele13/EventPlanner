@@ -20,6 +20,7 @@ public class Venue {
   private String name;
   private String description;
   private String phone;
+  private byte[] image;
 
   @ManyToOne
   @JoinColumn(name = "address_id")

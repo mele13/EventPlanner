@@ -14,6 +14,7 @@ public class VenueMapper {
         .description(venue.getDescription())
         .phone(venue.getPhone())
         .addressId(venue.getAddress() != null ? venue.getAddress().getId() : null)
+        .image(venue.getImage())
         .build();
   }
 
@@ -23,6 +24,7 @@ public class VenueMapper {
         .description(request.getDescription())
         .phone(request.getPhone())
         .address(address)
+        .image(request.getImage())
         .build();
   }
 
@@ -31,6 +33,7 @@ public class VenueMapper {
     venue.setDescription(request.getDescription());
     venue.setPhone(request.getPhone());
     venue.setAddress(address);
+    venue.setImage(request.getImage());
     return venue;
   }
 }

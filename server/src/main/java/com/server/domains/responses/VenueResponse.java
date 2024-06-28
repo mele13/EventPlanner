@@ -11,4 +11,5 @@ public class VenueResponse {
   private String description;
   private String phone;
   private Integer addressId;
+  private byte[] image;
 }
