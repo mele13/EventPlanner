@@ -9,6 +9,7 @@ import lombok.Data;
 @Builder
 public class UserEventsResponse {
   private Integer eventId;
+  private Integer userId;
   private UserEventRelationship relationship;
   private String eventName;
   private String eventDescription;

@@ -116,6 +116,7 @@ public class UserService {
     ownedEvents.forEach(event -> {
       userEventsResponses.add(UserEventsResponse.builder()
               .eventId(event.getId())
+              .userId(userId)
               .relationship(UserEventRelationship.MANAGES)
               .eventName(event.getName())
               .eventDescription(event.getDescription())
@@ -128,6 +129,7 @@ public class UserService {
       Event event = eventUser.getEvent();
       userEventsResponses.add(UserEventsResponse.builder()
               .eventId(eventUser.getEvent().getId())
+              .userId(userId)
               .relationship(UserEventRelationship.PARTICIPATES)
               .eventName(event.getName())
               .eventDescription(event.getDescription())
