@@ -46,6 +46,8 @@ export default {
 .popup-content {
   background: white;
   padding: 1%;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .close-btn {

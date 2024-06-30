@@ -9,6 +9,22 @@
   "loading_data": "Loading data...",
   "yes": "Yes",
   "no": "No",
+  "cancel": "Cancel",
+  "remove": "Remove",
+  "select": "Select",
+
+  "//": "Location",
+  "when": "When?",
+  "where": "Where?",
+  "get_there": "How to get there",
+
+  "//": "Time",
+  "months": "Months",
+  "days": "Days",
+  "hours": "Hours",
+  "minutes": "Minutes",
+  "seconds": "Seconds",
+  "milliseconds": "Milliseconds",
 
   "//": "Auth",
   "login": "Login",
@@ -50,8 +66,13 @@
   "red": "Red",
   "red-violet": "Red violet",
 
-  "//": "aaa",
-  "aa": "Vendor",
+  "//": "Data",
+  "address": "Address",
+  "description": "Description",
+  "phone": "Phone",
+  "email": "Email",
+  "email_invalid": "Invalid email address",
+  "postal_code": "Postal code",
 
   "//": "Countries",
   "country_code_AF": "Afghanistan",

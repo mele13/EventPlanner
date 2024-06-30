@@ -4,7 +4,7 @@ import type { EventMenuDto, MenuDto } from "@/interfaces/dtos/MenuDto";
 const MENUS_API_URL = '/api/menus';
 const EVENT_MENUS_API_URL = '/api/event-menus';
 
-export const CityService = {
+export const EventMenuService = {
   async getAllEventMenus(): Promise<EventMenuDto[]> {
     return sendRequest('GET', EVENT_MENUS_API_URL);
   },
@@ -22,7 +22,7 @@ export const CityService = {
   },
 };
 
-export const CountryService = {
+export const MenuService = {
   async getAllMenus(): Promise<MenuDto[]> {
     return sendRequest('GET', MENUS_API_URL);
   },

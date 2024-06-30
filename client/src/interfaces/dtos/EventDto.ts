@@ -37,6 +37,8 @@ export interface EventDto {
   faqIds: number[];
   menuIds: number[];
   eventUserIds: number[];
+  palette: string[];
+  template: string;
 }
 
 export interface EventStatistics {

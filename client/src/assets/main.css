@@ -110,6 +110,15 @@ body {
   color: white !important;
 }
 
+.btn-evt-hv  {
+  border-color: #dee2e6 !important;
+}
+
+.btn-evt-hv:hover {
+  background-color: var(--color-tertiary) !important;
+  color: white !important;
+}
+
 /* Tags */
 .tag-violet { background-color: var(--violet) !important; }
 .tag-blue { background-color: var(--blue) !important; }

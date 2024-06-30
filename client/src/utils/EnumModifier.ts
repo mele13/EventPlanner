@@ -51,12 +51,12 @@ export function credentialTypeToString(credentialType: CredentialType): string {
 export function attendanceTypeToString(attendanceType: AttendanceType): string {
   switch (attendanceType) {
     case AttendanceType.PHYSICAL:
-      return 'phy_att'
+      return 'phy_att';
     case AttendanceType.NONPHYSICAL:
-        return 'nphy_att'
+        return 'nphy_att';
     case AttendanceType.ONLINE:
-        return 'onl_att'
+        return 'onl_att';
     case AttendanceType.TELEPHONIC:
-        return 'tlf_att'
+        return 'tlf_att';
   }
 }

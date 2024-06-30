@@ -1,14 +1,14 @@
 <template>
-  <div class="carousel">
+  <div class="carousel position-relative overflow-hidden">
     <div
       v-for="(image, index) in photos"
       :key="index"
       :class="['slide', { active: index === slide }]"
     >
-      <img :src="`/img/venues/${image}`" alt="" class="carousel-image rounded" />
+      <img :src="`/img/venues/${image}`" alt="" class="carousel-image rounded noresp05-border" />
     </div>
-    <a class="prev" @click="prevSlide">&#10094;</a>
-    <a class="next" @click="nextSlide">&#10095;</a>
+    <a class="prev pointer position-absolute" @click="prevSlide"><i-fa-solid:caret-left class="icon-big" /></a>
+    <a class="next pointer position-absolute" @click="nextSlide"><i-fa-solid:caret-right class="icon-big" /></a>
   </div>
 </template>
 
@@ -25,9 +25,6 @@ export default {
       required: true
     }
   },
-  mounted() {
-    console.log('images', this.photos)
-  },
   methods: {
     prevSlide() {
       this.slide = (this.slide - 1 + this.photos.length) % this.photos.length
@@ -41,9 +38,7 @@ export default {
 
 <style scoped>
 .carousel {
-  position: relative;
-  overflow: hidden;
-  width: 40%;
+  width: 100%;
 }
 
 .carousel .slide {
@@ -59,15 +54,18 @@ export default {
   height: auto;
 }
 
+.icon-big {
+  font-size: 150%;
+}
+
 .prev,
 .next {
-  cursor: pointer;
-  position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  padding: 16px;
+  padding: 1%;
   background-color: rgba(255, 255, 255, 0.5);
-  border: 1px solid #ddd;
+  border: 2px solid var(--color-tertiary);
+  color: var(--color-tertiary);
   border-radius: 5px;
   z-index: 10;
 }

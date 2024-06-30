@@ -13,7 +13,7 @@ export interface MenuDto {
   main: string;
   side: string;
   sorbet: string;
-  type: Type;
+  type: string;
   dessert: string;
   cocktails?: string[];
   drinks?: string[];

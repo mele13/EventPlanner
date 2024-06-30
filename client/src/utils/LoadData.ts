@@ -1,10 +1,16 @@
 import type AddressDto from "@/interfaces/dtos/AddressDto";
-import type { CountryDto } from "@/interfaces/dtos/LocationDto";
+import type { EventDto } from "@/interfaces/dtos/EventDto";
+import type { CityDto, CountryDto } from "@/interfaces/dtos/LocationDto";
 import type { UserDto } from "@/interfaces/dtos/UserDto";
+import type { UsersEventsDto } from "@/interfaces/dtos/UsersEventsDto";
 import type { VenueDto } from "@/interfaces/dtos/VenueDto";
+import { AttendanceType } from "@/interfaces/enums/AttendanceType";
 import { Currency } from "@/interfaces/enums/Currency";
+import { EventState } from "@/interfaces/enums/EventState";
+import { EventType } from "@/interfaces/enums/EventType";
 import { Lang } from "@/interfaces/enums/Lang";
 import { Role } from "@/interfaces/enums/Role";
+import { UserEventRelationship } from "@/interfaces/enums/UserEventRelationship";
 
 export function loadUsers(): UserDto[] {
   return [
@@ -19,10 +25,10 @@ export function loadUsers(): UserDto[] {
 
 export function loadVenues(): VenueDto[] {
   return [
-    { id: 1, name: "Conference Hall", description: "A large hall suitable for conferences and events.", phone: "1234567890", addressId: 1, image: ["conference1.jpg", "conferece2.jpg", "conferece3.jpg"] },
+    { id: 1, name: "Conference Hall", description: "A large hall suitable for conferences and events.", phone: "1234567890", addressId: 1, image: ["conference1.jpg", "conference2.jpg", "conference3.jpg"] },
     { id: 2, name: "Expo Center", description: "A spacious center for exhibitions and large gatherings.", phone: "0987654321", addressId: 2, image: ["expo1.jpg", "expo2.jpg", "expo3.jpg", "expo4.jpg"] },
     { id: 3, name: "Private estate", description: "A private estate for weddings, parties and gatherings.", phone: "1122334455", addressId: 3, image: ["estate1.jpg", "estate2.jpg", "estate3.jpg", "estate4.jpg", "estate5.jpeg", "estate6.jpg"] },
-    { id: 4, name: "Outdoor Park", description: "A beautiful outdoor park for open-air events.", phone: "2233445566", addressId: 4, image: ["park1.jpg", "park2.jpg", "park3.jpg"] },
+    { id: 4, name: "Outdoor Park", description: "A beautiful outdoor park for open-air events.", phone: "2233445566", addressId: 4, image: ["park1.jpg", "park2.png", "park3.jpg"] },
     { id: 5, name: "Downtown Plaza", description: "A plaza located in the heart of downtown.", phone: "3344556677", addressId: 5, image: ["plaza1.jpg", "plaza2.jpg"] },
     { id: 6, name: "Beachside Resort", description: "A resort by the beach, ideal for retreats.", phone: "4455667788", addressId: 6, image: ["beach1.jpg", "beach2.jpg"] },
   ];
@@ -30,12 +36,112 @@ export function loadVenues(): VenueDto[] {
 
 export function loadAddress(): AddressDto[] {
   return [
-    { id: 1, street: "Main St", number: "123", postalCode: "12345", state: "CA", addressDetails: "Near the park", cityId: 1, countryId: 1 },
-    { id: 2, street: "Elm St", number: "456", postalCode: "67890", state: "TX", addressDetails: "Next to the mall", cityId: 2, countryId: 1 },
-    { id: 3, street: "Pine St", number: "789", postalCode: "11223", state: "NY", addressDetails: "Across the school", cityId: 3, countryId: 1 },
-    { id: 4, street: "Maple St", number: "101", postalCode: "44556", state: "FL", addressDetails: "Behind the stadium", cityId: 4, countryId: 1 },
-    { id: 5, street: "Oak St", number: "202", postalCode: "33445", state: "NV", addressDetails: "Near the lake", cityId: 5, countryId: 1 },
-    { id: 6, street: "Cedar St", number: "303", postalCode: "55667", state: "WA", addressDetails: "Next to the office", cityId: 6, countryId: 1 },
+    { id: 1, street: "Main St", number: "123", postalCode: "12345", state: "CA", addressDetails: "Near the park", cityId: 1, countryId: 188 },
+    { id: 2, street: "Elm St", number: "456", postalCode: "67890", state: "TX", addressDetails: "Next to the mall", cityId: 2, countryId: 188 },
+    { id: 3, street: "Pine St", number: "789", postalCode: "11223", state: "NY", addressDetails: "Across the school", cityId: 3, countryId: 188 },
+    { id: 4, street: "Maple St", number: "101", postalCode: "44556", state: "FL", addressDetails: "Behind the stadium", cityId: 4, countryId: 188 },
+    { id: 5, street: "Oak St", number: "202", postalCode: "33445", state: "NV", addressDetails: "Near the lake", cityId: 5, countryId: 188 },
+    { id: 6, street: "Cedar St", number: "303", postalCode: "55667", state: "WA", addressDetails: "Next to the office", cityId: 6, countryId: 188 },
+  ];
+}
+
+export function loadCities(): CityDto[] {
+  return [
+    { id: 1, name: "Los Angeles", code: "LA", countryId: 188 },
+    { id: 2, name: "Houston", code: "HOU", countryId: 188 },
+    { id: 3, name: "New York", code: "NY", countryId: 188 },
+    { id: 4, name: "Miami", code: "MIA", countryId: 188 },
+    { id: 5, name: "Las Vegas", code: "LV", countryId: 188 },
+    { id: 6, name: "Seattle", code: "SEA", countryId: 188 },
+  ];
+}
+
+export function loadEvent(): EventDto | undefined {
+  const event: EventDto =  {
+    id: 1,
+    eventType: EventType.WEDDING,
+    createdBy: 1,
+    ownedBy: 1,
+    name: "A & M wedding",
+    description: "A sweet young couple's wedding.",
+    lang: Lang.EN,
+    startDate: new Date("2024-11-16T17:00:00"),
+    endDate: new Date("2024-11-17T03:00:00"),
+    attendanceType: AttendanceType.PHYSICAL,
+    limitNumber: 100,
+    editLimit: new Date("2024-11-15T23:59:59"),
+    userEditLimit: new Date("2024-11-01T23:59:59"),
+    cancellationLimit: new Date("2024-11-15T23:59:59"),
+    notification: true,
+    tagIds: [1, 2, 3],
+    venueId: 3,
+    addressId: 3,
+    contact: "am.wedding.nov24@gmail.com",
+    live: true,
+    ticketPrice: 0,
+    ticketCurrency: Currency.EUR,
+    sellLimit: new Date("2099-01-01T23:59:59"),
+    otherDatesIds: [],
+    discountCodesIds: [],
+    cancellation: null,
+    state: EventState.ACTIVE,
+    refundsPolicy: '',
+    faqIds: [1, 2],
+    menuIds: [1],
+    eventUserIds: [1, 2],
+    palette: ['#F9F6EE', '#8D453D', '#FA8072', '#FAA0A0', '#FFC107'],
+    template: "EventTemplate1"
+  };
+
+  return event;
+}
+
+export function loadEvents(): EventDto[] {
+  return [
+    {
+      id: 1, eventType: EventType.WEDDING, createdBy: 1, ownedBy: 1, name: "A & M wedding",
+      description: "A sweet young couple's wedding.", lang: Lang.EN, startDate: new Date("2024-11-16T17:00:00"),
+      endDate: new Date("2024-11-17T03:00:00"), attendanceType: AttendanceType.PHYSICAL, limitNumber: 100,
+      editLimit: new Date("2024-11-15T23:59:59"), userEditLimit: new Date("2024-11-01T23:59:59"),
+      cancellationLimit: new Date("2024-11-15T23:59:59"), notification: true, tagIds: [1, 2, 3], venueId: 3,
+      addressId: 3, contact: "am.wedding.nov24@gmail.com", live: true, ticketPrice: 0, ticketCurrency: Currency.EUR,
+      sellLimit: new Date("2099-01-01T23:59:59"), otherDatesIds: [], discountCodesIds: [], cancellation: null,
+      state: EventState.ACTIVE, refundsPolicy: '', faqIds: [1, 2], menuIds: [1], eventUserIds: [1, 2],
+      palette: ['#F9F6EE', '#8D453D', '#FA8072', '#FAA0A0', '#FFC107'], template: "EventTemplate1"
+    },
+    {
+      id: 2, eventType: EventType.GAMING, createdBy: 1, ownedBy: 2, name: "Gaming Tournament",
+      description: "A competitive gaming event.", lang: Lang.EN, startDate: new Date("2024-08-16T17:00:00"),
+      endDate: new Date("2024-08-17T03:00:00"), attendanceType: AttendanceType.ONLINE, limitNumber: 50,
+      editLimit: new Date("2024-08-15T23:59:59"), userEditLimit: new Date("2024-08-01T23:59:59"),
+      cancellationLimit: new Date("2024-11-15T23:59:59"), notification: true, tagIds: [4, 5, 6], venueId: 2,
+      addressId: 4, contact: "gaming.bb@gmail.com", live: true, ticketPrice: 0, ticketCurrency: Currency.EUR,
+      sellLimit: new Date("2099-01-01T23:59:59"), otherDatesIds: [], discountCodesIds: [], cancellation: null,
+      state: EventState.ACTIVE, refundsPolicy: '', faqIds: [1, 2], menuIds: [1], eventUserIds: [1, 2],
+      palette: ['#F9F6EE', '#8D453D', '#FA8072', '#FAA0A0', '#FFC107'], template: "EventTemplate4"
+    },
+    {
+      id: 3, eventType: EventType.HOLIDAY, createdBy: 3, ownedBy: 3, name: "Holiday Party",
+      description: "A fun holiday gathering.", lang: Lang.EN, startDate: new Date("2024-12-23T17:00:00"),
+      endDate: new Date("2024-12-17T03:00:00"), attendanceType: AttendanceType.PHYSICAL, limitNumber: 20,
+      editLimit: new Date("2024-12-15T23:59:59"), userEditLimit: new Date("2024-12-01T23:59:59"),
+      cancellationLimit: new Date("2024-12-15T23:59:59"), notification: false, tagIds: [9, 12, 8], venueId: 6,
+      addressId: 4, contact: "holiday.aa@gmail.com", live: true, ticketPrice: 0, ticketCurrency: Currency.EUR,
+      sellLimit: new Date("2099-01-01T23:59:59"), otherDatesIds: [], discountCodesIds: [], cancellation: null,
+      state: EventState.ACTIVE, refundsPolicy: '', faqIds: [1, 2], menuIds: [1], eventUserIds: [1, 2],
+      palette: ['#F9F6EE', '#8D453D', '#FA8072', '#FAA0A0', '#FFC107'], template: "EventTemplate2"
+    }
+  ];
+}
+
+export function loadUserEvents(): UsersEventsDto[] {
+  return [
+    { eventId: 1, userId: 1, relationship: UserEventRelationship.MANAGES, eventName: "A & M wedding",
+    eventDescription: "A sweet young couple's wedding.", eventType: EventType.WEDDING },
+    { eventId: 2, userId: 1, relationship: UserEventRelationship.PARTICIPATES, eventName: "Gaming Tournament",
+    eventDescription: "A competitive gaming event.", eventType: EventType.GAMING },
+    { eventId: 3, userId: 1, relationship: UserEventRelationship.PARTICIPATES, eventName: "Holiday Party",
+    eventDescription: "A fun holiday gathering.", eventType: EventType.HOLIDAY },
   ];
 }
 

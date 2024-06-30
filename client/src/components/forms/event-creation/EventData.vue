@@ -8,7 +8,7 @@
       </div>
       <!-- Event name -->
       <div class="form-group py-1">
-        <label for="event-name"> {{ $t('event_name') }}<span class="sup obl">*</span> </label>
+        <label for="event-name"> {{ $t('event_name') }}<span class="sup obl">*</span></label>
         <input type="text" class="form-control" id="event-name" />
       </div>
 
@@ -61,7 +61,7 @@
     <!-- Event dates -->
     <div id="event-dates">
       <div class="d-flex align-items-center mt-3 mb-1">
-        <i-ion:calendar-outline class="tt-icon"></i-ion:calendar-outline>
+        <i-ion:calendar-outline class="tt-icon" />
         <h4 class="mb-0">{{ $t('event_dates') }}</h4>
       </div>
 
