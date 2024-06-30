@@ -8,11 +8,17 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.server.domains.Event;
+import com.server.domains.EventUser;
 import com.server.domains.User;
+import com.server.domains.enums.UserEventRelationship;
 import com.server.domains.requests.user.ChangePasswordRequest;
 import com.server.domains.requests.user.ChangeRoleRequest;
 import com.server.domains.requests.user.UpdateUserRequest;
+import com.server.domains.responses.UserEventsResponse;
 import com.server.domains.responses.UserResponse;
+import com.server.repositories.EventRepository;
+import com.server.repositories.EventUserRepository;
 import com.server.repositories.TokenRepository;
 import com.server.repositories.UserRepository;
 
@@ -25,6 +31,8 @@ public class UserService {
   private final UserRepository repository;
   private final TokenRepository tokenRepository;
   private final PasswordEncoder passwordEncoder;
+  private final EventRepository eventRepository;
+  private final EventUserRepository eventUserRepository;
   
   public void changePassword(ChangePasswordRequest request, Principal loggedInUser) {
     User user = (User) ((UsernamePasswordAuthenticationToken) loggedInUser).getPrincipal();
@@ -98,5 +106,34 @@ public class UserService {
         .role(user.getRole())
         .build()));
     return userResponses;
+  }
+
+  public List<UserEventsResponse> getUsersEvents(Integer userId) {
+    List<UserEventsResponse> userEventsResponses = new ArrayList<>();
+
+    // Owned events
+    List<Event> ownedEvents = eventRepository.findByOwnerId(userId);
+    ownedEvents.forEach(event -> {
+      userEventsResponses.add(UserEventsResponse.builder()
+              .eventId(event.getId())
+              .relationship(UserEventRelationship.MANAGES)
+              .eventName(event.getName())
+              .eventDescription(event.getDescription())
+              .build());
+    });
+
+    // Participates on
+    List<EventUser> eventUsers = eventUserRepository.findByUserId(userId);
+    eventUsers.forEach(eventUser -> {
+      Event event = eventUser.getEvent();
+      userEventsResponses.add(UserEventsResponse.builder()
+              .eventId(eventUser.getEvent().getId())
+              .relationship(UserEventRelationship.PARTICIPATES)
+              .eventName(event.getName())
+              .eventDescription(event.getDescription())
+              .build());
+    });
+
+    return userEventsResponses;
   }
 }

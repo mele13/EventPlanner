@@ -108,7 +108,7 @@ public class EventService {
         .pageViews(pageViews)
         // Agregar más campos según sea necesario
         .build();
-  }
+  }  
 
   // ------------------ Private functions ------------------
   public List<CDate> getDates(List<Integer> otherDatesIds) {

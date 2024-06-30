@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.server.domains.requests.user.ChangePasswordRequest;
 import com.server.domains.requests.user.ChangeRoleRequest;
 import com.server.domains.requests.user.UpdateUserRequest;
+import com.server.domains.responses.UserEventsResponse;
 import com.server.domains.responses.UserResponse;
 import com.server.services.UserService;
 
@@ -59,6 +60,11 @@ public class UserController {
   @GetMapping()
   public ResponseEntity<List<UserResponse>> getAll() {
     return ResponseEntity.ok(userService.getAll());
+  }
+
+  @GetMapping("/{id}/events")
+  public List<UserEventsResponse> getUserEvents(@PathVariable("id") Integer id) {
+    return userService.getUsersEvents(id);
   }
 
   @PatchMapping("/change-role")
