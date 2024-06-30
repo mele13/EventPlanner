@@ -44,4 +44,6 @@ public class EventResponse {
   private List<Integer> faqIds;
   private List<Integer> menuIds;
   private List<Integer> eventUserIds;
+  private String template;
+  private List<String> palette;
 }

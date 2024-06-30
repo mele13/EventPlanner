@@ -77,6 +77,8 @@ public class EventMapper {
         .eventUserIds(event.getEventUsers() != null
             ? event.getEventUsers().stream().map(EventUser::getId).collect(Collectors.toList())
             : null)
+        .template(event.getTemplate())
+        .palette(event.getPalette())
         .build();
   }
 
@@ -118,6 +120,8 @@ public class EventMapper {
             .map(Optional::get).collect(Collectors.toList()))
         .eventUsers(request.getEventUserIds().stream().map(eventUserRepository::findById).filter(Optional::isPresent)
             .map(Optional::get).collect(Collectors.toList()))
+        .template(request.getTemplate())
+        .palette(request.getPalette())
         .build();
   }
 
@@ -158,6 +162,8 @@ public class EventMapper {
             .map(Optional::get).collect(Collectors.toList()))
         .eventUsers(request.getEventUserIds().stream().map(eventUserRepository::findById).filter(Optional::isPresent)
             .map(Optional::get).collect(Collectors.toList()))
+        .template(request.getTemplate())
+        .palette(request.getPalette())
         .build();
   }
 }

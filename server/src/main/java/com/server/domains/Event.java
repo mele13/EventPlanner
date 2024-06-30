@@ -115,4 +115,7 @@ public class Event {
   
   @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Comment> comments;
+
+  private String template;
+  private List<String> palette;
 }
