@@ -12,6 +12,11 @@
   "cancel": "Cancel",
   "remove": "Remove",
   "select": "Select",
+  "edit": "Edit",
+  "search": "Search",
+
+  "//": "Application",
+  "app_name": "EventPlanner",
 
   "//": "Location",
   "when": "When?",
@@ -32,6 +37,9 @@
 
   "//": "Navbar",
   "home": "Home",
+  "about": "About",
+  "contact": "Contact",
+  "new_event": "New event",
 
   "//": "User",
   "my_events": "My events",

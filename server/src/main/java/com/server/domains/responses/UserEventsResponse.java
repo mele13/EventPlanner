@@ -1,5 +1,6 @@
 package com.server.domains.responses;
 
+import com.server.domains.enums.EventType;
 import com.server.domains.enums.UserEventRelationship;
 
 import lombok.Builder;
@@ -13,4 +14,5 @@ public class UserEventsResponse {
   private UserEventRelationship relationship;
   private String eventName;
   private String eventDescription;
+  private EventType eventType;
 }

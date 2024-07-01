@@ -1,6 +1,6 @@
 <template>
   <LangLoadSpinner :modules="modules" />
-  <div class="user-events">
+  <div class="user-events mx-4 mt-4 mhvh">
     <h2>{{ $t('my_events') }}</h2>
 
     <SectionLoadSpinner v-if="isLoading" />
@@ -137,7 +137,8 @@ export default defineComponent({
 
     const openEventLink = (event: UsersEventsDto) => {
       const eventName = validateEventName(event.eventName.toString());
-      window.open(`/event/${event.eventType}_${event.eventId}/${eventName}`, '_blank');
+      const isOwned = event.relationship === UserEventRelationship.MANAGES;
+      window.open(`/event/${event.eventType}_${event.eventId}/${eventName}?owned=${isOwned}`, '_blank');
     };
 
     return {

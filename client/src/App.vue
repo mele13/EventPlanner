@@ -4,6 +4,7 @@ import { ref } from 'vue';
 import { watch } from 'vue';
 
 import NavBar from './components/NavBar.vue';
+import ContactFooterView from '@/views/ContactFooterView.vue';
 import { validateRoute } from './utils/Validators';
 
 const showNavBar = ref(true);
@@ -22,6 +23,9 @@ watch(
     <NavBar />
   </header>
   <RouterView />
+  <section id="contact">
+    <ContactFooterView />
+  </section>
 </template>
 
 <style scoped></style>

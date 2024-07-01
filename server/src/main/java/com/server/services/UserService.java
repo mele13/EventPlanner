@@ -120,6 +120,7 @@ public class UserService {
               .relationship(UserEventRelationship.MANAGES)
               .eventName(event.getName())
               .eventDescription(event.getDescription())
+              .eventType(event.getEventType())
               .build());
     });
 
@@ -133,6 +134,7 @@ public class UserService {
               .relationship(UserEventRelationship.PARTICIPATES)
               .eventName(event.getName())
               .eventDescription(event.getDescription())
+              .eventType(event.getEventType())
               .build());
     });
 

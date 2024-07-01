@@ -1,4 +1,4 @@
-import type { Role } from "@/interfaces/enums/Role";
+import { Role } from "@/interfaces/enums/Role";
 
 export interface UpdateUser {
   name: string;
@@ -52,3 +52,12 @@ export interface EventUserDto {
   menuId?: number;
   image?: ArrayBuffer;
 }
+
+export interface UserRegisterDto {
+  name: string;
+  surname: string;
+  email: string;
+  password: string;
+  role: Role;
+}
+

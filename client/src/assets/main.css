@@ -80,6 +80,10 @@ body {
   width: 5% !important;
 }
 
+.mhvh {
+  min-height: 67.5vh !important;
+}
+
 /* Margins, paddings */
 .ml-2r { margin-left: 0.2rem; }
 .ml-0i { margin-left: 0 !important; }

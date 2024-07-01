@@ -1,6 +1,6 @@
 <template>
   <LangLoadSpinner :modules="modules" />
-  <form class="container d-flex flex-column align-items-center mb-2">
+  <form class="container d-flex flex-column align-items-center mb-2 mhvh">
     <!-- Steps progress bar -->
     <div class="w-75">
       <div class="step-container row br-10 w-100 noresp05-border ml-0i">
@@ -248,11 +248,11 @@ export default defineComponent({
         const createdEvent = await EventService.createEvent(event);
         const { eventType, id, name } = createdEvent;
         router.push('/my_events');
-        window.open(`/event/${eventType}_${id}/${validateEventName(name)}`, '_blank');
+        window.open(`/event/${eventType}_${id}/${validateEventName(name)}?owned=true`, '_blank');
       } catch (e) {
         const event = loadEvent();
         router.push('/my_events');
-        window.open(`/event/${event.eventType}_${event.id}/${validateEventName(event.name)}`, '_blank');
+        window.open(`/event/${event.eventType}_${event.id}/${validateEventName(event.name)}?owned=true`, '_blank');
       }
     };
 

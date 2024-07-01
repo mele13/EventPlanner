@@ -111,14 +111,14 @@ export function loadEvents(): EventDto[] {
     },
     {
       id: 2, eventType: EventType.GAMING, createdBy: 1, ownedBy: 2, name: "Gaming Tournament",
-      description: "A competitive gaming event.", lang: Lang.EN, startDate: new Date("2024-08-16T17:00:00"),
-      endDate: new Date("2024-08-17T03:00:00"), attendanceType: AttendanceType.ONLINE, limitNumber: 50,
-      editLimit: new Date("2024-08-15T23:59:59"), userEditLimit: new Date("2024-08-01T23:59:59"),
-      cancellationLimit: new Date("2024-11-15T23:59:59"), notification: true, tagIds: [4, 5, 6], venueId: 2,
+      description: "A competitive gaming event.", lang: Lang.EN, startDate: new Date("2025-08-16T17:00:00"),
+      endDate: new Date("2025-08-17T03:00:00"), attendanceType: AttendanceType.ONLINE, limitNumber: 50,
+      editLimit: new Date("2025-08-15T23:59:59"), userEditLimit: new Date("2025-08-01T23:59:59"),
+      cancellationLimit: new Date("2025-11-15T23:59:59"), notification: true, tagIds: [4, 5, 6], venueId: 2,
       addressId: 4, contact: "gaming.bb@gmail.com", live: true, ticketPrice: 0, ticketCurrency: Currency.EUR,
       sellLimit: new Date("2099-01-01T23:59:59"), otherDatesIds: [], discountCodesIds: [], cancellation: null,
       state: EventState.ACTIVE, refundsPolicy: '', faqIds: [1, 2], menuIds: [1], eventUserIds: [1, 2],
-      palette: ['#F9F6EE', '#8D453D', '#FA8072', '#FAA0A0', '#FFC107'], template: "EventTemplate4"
+      palette: ['#F9F6EE', '#8D453D', '#FA8072', '#FAA0A0', '#FFC107'], template: "EventTemplate3"
     },
     {
       id: 3, eventType: EventType.HOLIDAY, createdBy: 3, ownedBy: 3, name: "Holiday Party",

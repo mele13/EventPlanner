@@ -3,6 +3,8 @@ import HomeView from '@/views/HomeView.vue';
 import EventCreator from '@/views/EventCreatorView.vue';
 import EventView from '@/views/EventView.vue';
 import UserEventsView from '@/views/UserEventsView.vue';
+import UserProfile from '@/views/UserProfileView.vue';
+import LogOut from '@/components/auth/LogOut.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,7 +12,8 @@ const router = createRouter({
     { path: '/', component: HomeView },
     { path: '/event', component: EventCreator, meta: { requiresAuth: true } },
     { path: '/my_events', component: UserEventsView, meta: { requiresAuth: true } },
-    // { path: '/logout', component: LogOut },
+    { path: '/logout', component: LogOut },
+    { path: '/profile/:id', component: UserProfile, meta: { requiresAuth: true } },
     { path: '/:pathMatch(.*)', redirect: '/' }, // Any path
     // { path: '/admin', component: AdminView, meta: { requiresAuth: true } },
 
@@ -28,17 +31,17 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  // const role = localStorage.getItem('role')
-  // const isLoggedIn = localStorage.getItem('isLoggedIn')
-  // const requiresAuth = to.meta.requiresAuth
+  const requiresAuth = to.meta.requiresAuth
 
-  // if (requiresAuth && !isLoggedIn) {
+  if (requiresAuth && !localStorage.getItem('isLoggedIn')) {
     // If authentication is required and user is not authenticated, redirect to /login
-    // next('/login')
-  // } else {
+    next('/');
+  } else if (requiresAuth && to.path === '/admin' && localStorage.getItem('role') !== 'ADMIN') {
+    next('/');
+  } else {
     // Allow navigation to other routes
     next();
-  // }
+  }
 });
 
 export default router;

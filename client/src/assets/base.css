@@ -22,6 +22,7 @@
   --red: #E71F2A;
   --red-violet: #A6228F;
   --clay: #8D453D;
+  --white05: #ffffff9d;
 }
 
 /* semantic color variables for this project */
@@ -48,6 +49,7 @@
   --color-red: var(--red);
   --color-red-violet: var(--red-violet);
   --color-clay: var(--clay);
+  --color-white05: var(--white05);
 }
 
 @media (prefers-color-scheme: dark) {
