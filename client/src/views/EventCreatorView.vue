@@ -34,7 +34,7 @@
       <EventTemplate v-if="currentStep === 6" :countries="countries" :venues="venues" :addresses="addresses" :cities="cities" />
 
       <!-- Submit event -->
-      <div class="buttons">
+      <div class="buttons mb-4">
         <button v-if="currentStep > 0" type="button" class="btn btn-evt mx-2" @click.prevent="prevStep">
           {{ $t('back') }}
         </button>
@@ -89,7 +89,7 @@ import type { AttendanceType } from '@/interfaces/enums/AttendanceType';
 import type { Currency } from '@/interfaces/enums/Currency';
 import type { EventState } from '@/interfaces/enums/EventState';
 import { useRouter } from 'vue-router';
-import { validateEventName } from '@/utils/Validators';
+import { getEventName } from '@/utils/Tools';
 
 export default defineComponent({
   components: {
@@ -248,11 +248,11 @@ export default defineComponent({
         const createdEvent = await EventService.createEvent(event);
         const { eventType, id, name } = createdEvent;
         router.push('/my_events');
-        window.open(`/event/${eventType}_${id}/${validateEventName(name)}?owned=true`, '_blank');
+        window.open(`/event/${eventType}_${id}/${getEventName(name)}?owned=true`, '_blank');
       } catch (e) {
         const event = loadEvent();
         router.push('/my_events');
-        window.open(`/event/${event.eventType}_${event.id}/${validateEventName(event.name)}?owned=true`, '_blank');
+        window.open(`/event/${event.eventType}_${event.id}/${getEventName(event.name)}?owned=true`, '_blank');
       }
     };
 

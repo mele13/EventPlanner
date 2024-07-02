@@ -85,7 +85,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref } from 'vue';
-import { validateEmail } from '@/utils/Validators';
+import { validateEmail } from '@/utils/Tools';
 import PopupGenerator from '@/components/generators/PopupGenerator.vue';
 import ColorPaletteGenerator from '@/components/generators/ColorPaletteGenerator.vue';
 import EventTemplate1 from '@/components/templates/EventTemplate1.vue';

@@ -5,7 +5,7 @@ import { watch } from 'vue';
 
 import NavBar from './components/NavBar.vue';
 import ContactFooterView from '@/views/ContactFooterView.vue';
-import { validateRoute } from './utils/Validators';
+import { getRoute } from './utils/Tools';
 
 const showNavBar = ref(true);
 const route = useRoute();
@@ -13,7 +13,7 @@ const route = useRoute();
 watch(
   () => route.path,
   (newPath) => {
-    showNavBar.value = validateRoute(newPath);
+    showNavBar.value = getRoute(newPath);
   }
 );
 </script>

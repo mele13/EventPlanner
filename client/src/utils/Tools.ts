@@ -3,10 +3,10 @@ export const validateEmail = (contactEmail: string) => {
   return emailPattern.test(contactEmail) ? null : 'email_invalid'
 }
 
-export const validateEventName = (eventName: string) => {
+export const getEventName = (eventName: string) => {
   return eventName ? eventName.replace(/\s+/g, '-').toLowerCase() : '';
 }
 
-export const validateRoute = (route: string) => {
+export const getRoute = (route: string) => {
   return !/^\/event\/.*/.test(route);
 }

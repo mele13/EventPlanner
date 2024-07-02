@@ -61,7 +61,7 @@ import GraduationCap from '~icons/game-icons/graduate-cap';
 import Fist from '~icons/game-icons/fist';
 import Warning from '~icons/emojione-v1/warning';
 import More from '~icons/icon-park-solid/more-two';
-import { validateEventName } from "@/utils/Validators";
+import { getEventName } from "@/utils/Tools";
 
 export default defineComponent({
   components: {
@@ -136,7 +136,7 @@ export default defineComponent({
     };
 
     const openEventLink = (event: UsersEventsDto) => {
-      const eventName = validateEventName(event.eventName.toString());
+      const eventName = getEventName(event.eventName.toString());
       const isOwned = event.relationship === UserEventRelationship.MANAGES;
       window.open(`/event/${event.eventType}_${event.eventId}/${eventName}?owned=${isOwned}`, '_blank');
     };

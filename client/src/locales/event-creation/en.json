@@ -154,7 +154,5 @@
   "event_get_there": "How to get there",
   "event_address": "Event address",
   "event_title": "Event title",
-  "event_palette_sel": "Select a palette",
-
-  "//": "aaa"
+  "event_palette_sel": "Select a palette"
 }
