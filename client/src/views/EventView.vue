@@ -105,7 +105,7 @@ export default defineComponent({
     EditStickyIcon,
   },
   setup() {
-    const modules = ['event-creation', 'location', 'financial'];
+    const modules = ['event-creation', 'location', 'financial', 'home'];
     var eventData = ref<EventDto | null>(null);
     const isLoading = ref(true);
     const route = useRoute();
