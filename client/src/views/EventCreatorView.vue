@@ -110,7 +110,7 @@ export default defineComponent({
     const currentStep = ref(0);
     const selectedEvent = ref<number | null>(null);
     const selectedEventId = ref<string | null>(null);
-    const modules = ['event-creation', 'location', 'financial'];
+    const modules = ['home', 'event-creation', 'location', 'financial'];
     const isLoading = ref(true);
 
     const eventData = ref({

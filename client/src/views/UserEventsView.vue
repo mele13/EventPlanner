@@ -69,7 +69,7 @@ export default defineComponent({
     SectionLoadSpinner,
   },
   setup() {
-    const modules = ['user-events'];
+    const modules = ['home', 'user-events'];
     const ownedEvents = ref<UsersEventsDto[]>([]);
     const participatedEvents = ref<UsersEventsDto[]>([]);
     const events = ref<UsersEventsDto[]>([]);

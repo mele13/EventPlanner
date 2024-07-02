@@ -104,7 +104,7 @@ export default {
     },
   },
   setup() {
-    const modules = ['user'];
+    const modules = ['home', 'user'];
     return {
       modules,
     }
