@@ -38,5 +38,9 @@
   "app_discover": "Entdecken Sie unsere Dienstleistungen",
   "explore_events": "Veranstaltungen entdecken",
   "plan_events": "Planen Sie Ihre Veranstaltungen einfach und stilvoll.",
-  "app_slogan": "Ihre Vision, Unsere Expertise"
+  "app_slogan": "Ihre Vision, Unsere Expertise",
+
+  "//": "Allgemeine Geschäftsbedingungen",
+  "terms_conditions_tt": "Den Allgemeinen Geschäftsbedingungen zustimmen",
+  "terms_conditions_c": "Durch die Anmeldung stimmst du unseren Allgemeinen Geschäftsbedingungen zu. Bitte stelle sicher, dass du sie gelesen und verstanden hast, bevor du fortfährst."
 }

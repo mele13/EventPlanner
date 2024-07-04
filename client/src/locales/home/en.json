@@ -38,5 +38,9 @@
   "app_discover": "Discover our services",
   "explore_events": "Explore events",
   "plan_events": "Plan your events with ease and style.",
-  "app_slogan": "Your Vision, Our Expertise"
+  "app_slogan": "Your Vision, Our Expertise",
+
+  "//": "Terms & conditions",
+  "terms_conditions_tt" : "Agree to the Terms & Conditions",
+  "terms_conditions_c" : "By signing up, you agree to our Terms & Conditions. Please make sure you have read and understood them before proceeding."
 }

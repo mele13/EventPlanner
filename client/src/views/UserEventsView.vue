@@ -1,6 +1,6 @@
 <template>
   <LangLoadSpinner :modules="modules" />
-  <div class="user-events mx-4 mt-4 mhvh">
+  <div class="user-events mx-5 mt-4 mhvh">
     <h2>{{ $t('my_events') }}</h2>
 
     <SectionLoadSpinner v-if="isLoading" />

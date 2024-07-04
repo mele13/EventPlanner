@@ -38,5 +38,9 @@
   "app_discover": "Découvrez nos services",
   "explore_events": "Explorez les événements",
   "plan_events": "Planifiez vos événements facilement et avec style.",
-  "app_slogan": "Votre Vision, Notre Expertise"
+  "app_slogan": "Votre Vision, Notre Expertise",
+
+  "//": "Conditions générales",
+  "terms_conditions_tt": "Accepter les Conditions Générales",
+  "terms_conditions_c": "En vous inscrivant, vous acceptez nos Conditions Générales. Veuillez vous assurer de les avoir lues et comprises avant de continuer."
 }

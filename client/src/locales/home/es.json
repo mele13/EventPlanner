@@ -38,5 +38,9 @@
   "app_discover": "Descubre nuestros servicios",
   "explore_events": "Explora eventos",
   "plan_events": "Planea tus eventos con facilidad y estilo.",
-  "app_slogan": "Tu Visión, Nuestra Experiencia"
+  "app_slogan": "Tu Visión, Nuestra Experiencia",
+
+  "//": "Términos y condiciones",
+  "terms_conditions_tt": "Aceptar los Términos y Condiciones",
+  "terms_conditions_c": "Al registrarte, aceptas nuestros Términos y Condiciones. Por favor, asegúrate de haberlos leído y entendido antes de continuar."
 }

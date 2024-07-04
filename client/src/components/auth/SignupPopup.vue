@@ -31,6 +31,13 @@
           <label class="d-block mb-1" for="password">{{ $t('password') }}<span class="sup obl">*</span></label>
           <input class="w-100 form-control" type="password" id="password" v-model="password" required />
         </div>
+        <!-- Terms & conditions -->
+        <Checkbox
+          id="terms-conditions"
+          :labelContent="$t('terms_conditions_tt')"
+          :small="$t('terms_conditions_c')"
+          :isRequired="true"
+        />
         <!-- Submit -->
         <div class="text-center">
           <button type="submit" class="btn btn-evt" v-if="!isLoading">{{ $t('signup') }}</button>
@@ -45,6 +52,7 @@
 </template>
 
 <script>
+import Checkbox from '@/components/generators/CheckboxGenerator.vue';
 import PopupGenerator from '@/components/generators/PopupGenerator.vue';
 import LangLoadSpinner from '@/components/LangLoadSpinner.vue';
 import AuthSpinner from '@/components/auth/AuthSpinner.vue';
@@ -56,6 +64,7 @@ export default {
     PopupGenerator,
     LangLoadSpinner,
     AuthSpinner,
+    Checkbox,
   },
   props: {
     isOpen: {

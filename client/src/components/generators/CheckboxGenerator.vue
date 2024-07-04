@@ -18,6 +18,10 @@
         :sup="sup" 
       />
     </label>
+    <small class="form-text text-muted" v-if="small">
+      <br>
+      {{ small }}
+    </small>
   </div>
 </template>
 
@@ -75,7 +79,11 @@ export default defineComponent({
     sup: {
       type: Boolean,
       default: false
-    }
+    },
+    small: {
+      type: String,
+      default: ''
+    },
   },
   setup(props, { emit }) {
     const handleChange = (event) => {
