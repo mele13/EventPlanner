@@ -13,6 +13,7 @@
         <div class="border rounded d-inline-block p-3 pointer" v-for="event in ownedEvents" :key="event.eventId.toString()" @click="openEventLink(event)">
           <h6><component :is="getIcon(event.eventType)" class="tt-icon" /> {{ event.eventName }}</h6>
           <p class="mb-0">{{ event.eventDescription }}</p>
+          <small class="form-text text-muted">{{ $t('subdomain') }}: {{ generateEventUrl(event) }}</small>
         </div>
       </div>
     </div>
@@ -25,6 +26,7 @@
         <div class="border rounded d-inline-block p-3 pointer" v-for="event in participatedEvents" :key="event.eventId.toString()" @click="openEventLink(event)">
           <h6><component :is="getIcon(event.eventType)" class="tt-icon" /> {{ event.eventName }}</h6>
           <p class="mb-0">{{ event.eventDescription }}</p>
+          <small class="form-text text-muted">{{ $t('subdomain') }}: {{ generateEventUrl(event) }}</small>
         </div>
       </div>
     </div>
@@ -135,16 +137,22 @@ export default defineComponent({
       }
     };
 
+    const generateEventUrl = (event: UsersEventsDto) => {
+      const eventName = getEventName(event.eventName.toString());
+      return `${event.eventType}_${event.eventId}/${eventName}`.toLowerCase();
+    };
+
     const openEventLink = (event: UsersEventsDto) => {
       const eventName = getEventName(event.eventName.toString());
       const isOwned = event.relationship === UserEventRelationship.MANAGES;
-      window.open(`/event/${event.eventType}_${event.eventId}/${eventName}?owned=${isOwned}`, '_blank');
+      window.open(`/event/${event.eventType}_${event.eventId}/${eventName}?owned=${isOwned}`.toLowerCase(), '_blank');
     };
 
     return {
       ownedEvents,
       getIcon,
       openEventLink,
+      generateEventUrl,
       participatedEvents,
       isLoading,
       modules,

@@ -2,5 +2,6 @@
   "//": "",
   "my_events": "My Events",
   "owned_events": "Owned Events",
-  "participated_events": "Participated Events"
+  "participated_events": "Participated Events",
+  "subdomain": "Subdomain"
 }

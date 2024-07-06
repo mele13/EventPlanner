@@ -1,5 +1,7 @@
 {
+  "//": "",
   "my_events": "Mes Événements",
   "owned_events": "Événements Possédés",
-  "participated_events": "Événements Participés"
+  "participated_events": "Événements Participés",
+  "subdomain": "Sous-domaine"
 }
