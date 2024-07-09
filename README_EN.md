@@ -26,8 +26,7 @@ Users may:
 - View free access events created by other users.
 - Register to access specific content according to their needs.
 
-{UNREGISTERED HOMEPAGE SCREENSHOT}
-
+![user-authenticated](https://github.com/mele13/EventPlanner/assets/87198060/b1316e72-8eb3-4862-b02d-be7de1508bb9)
 
 
 ** If the user is registered
@@ -35,8 +34,7 @@ Users may:
 - Customize information and options according to the type of event.
 - Analyze detailed statistics for each event.
 
-{REGISTERED HOMEPAGE SCREENSHOT}
-
+![git-inicio-con-auth](https://github.com/mele13/EventPlanner/assets/87198060/29eaa022-a7b4-4aa2-91f1-5f7e78542c4e)
 
 
 1. Login and Sign up
@@ -47,8 +45,7 @@ Steps for registration:
 - Fill out the form with your personal details.
 - Verify your email.
 
-{SIGNUP SCREENSHOT}
-
+![git-sign-up](https://github.com/mele13/EventPlanner/assets/87198060/60e26ed0-c7b2-4720-9a34-643bd952b4ad)
 
 
 Steps to log in:
@@ -56,7 +53,7 @@ Steps to log in:
 - Enter your email and password.
 - Log in.
 
-{LOGIN SCREENSHOT}
+![git-login](https://github.com/mele13/EventPlanner/assets/87198060/a6bbe38b-2257-49e1-99ec-a32eed685ce2)
 
 
 2. Event Creation
@@ -71,8 +68,7 @@ Steps to create an event:
 - Configure the event menu.
 - Confirm the details and select the template and color palette.
 
-{EVENT CREATION VIDEO}
-
+https://github.com/mele13/EventPlanner/assets/87198060/ea55fd19-951b-49c0-a5b4-b89055611bf8
 
 
 3. Event Management
@@ -81,7 +77,7 @@ Users can manage their created events from a centralized dashboard.
 Dashboard functionalities:
 - View information about the events a user is associated with.
 
-{MY_EVENTS SCREENSHOT}
+![git-my-events](https://github.com/mele13/EventPlanner/assets/87198060/31897818-1ad4-407a-a907-868c83ff4186)
 
 
 Event management functionalities:
@@ -89,7 +85,7 @@ Event management functionalities:
 - View event and participant statistics.
 - Assign roles and permissions to other users.
 
-{USER MANAGEMENT IN AN EVENT SCREENSHOT}
+![git-user-management](https://github.com/mele13/EventPlanner/assets/87198060/cc01cc8b-3eab-4adc-bbe3-62f033496e2d)
 
 
 4. Languages
@@ -100,14 +96,13 @@ Steps to change the language:
 - Select the desired language.
 - The interface will automatically update to the selected language.
 
-{LANGUAGE CHANGE VIDEO}
-
+![language-change](https://github.com/mele13/EventPlanner/assets/87198060/f240eb88-74fc-4f07-b39c-315658a3d824)
 
 
 5. Logout
 You can log out from the navigation bar as long as the user is registered and logged in.
 
-{NAVIGATION BAR SCREENSHOT}
+![git-navbar-logout](https://github.com/mele13/EventPlanner/assets/87198060/2b624700-ebb9-4e17-b0eb-4c1edf025f94)
 
 --------------------------------------------------
 
