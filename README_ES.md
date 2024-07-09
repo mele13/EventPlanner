@@ -27,7 +27,7 @@ Los usuarios pueden:
 - Ver eventos de acceso libre creados por otros usuarios.
 - Registrarse para acceder a contenidos específicos según sus necesidades.
 
-{CAPTURA DEL INICIO SIN REGISTRAR}
+![user-authenticated](https://github.com/mele13/EventPlanner/assets/87198060/b210f42a-cda7-4c94-8e4a-1498f7d2609a)
 
 
 ** Si el usuario está registrado
@@ -35,8 +35,7 @@ Los usuarios pueden:
 - Personalizar la información y las opciones según el tipo de evento.
 - Analizar estadísticas detalladas de cada evento.
 
-{CAPTURA DEL INICIO REGISTRADO}
-
+![git-inicio-con-auth](https://github.com/mele13/EventPlanner/assets/87198060/f3003d5e-3f56-4cba-9999-982d66dd9d4e)
 
 
 1. Registro y Inicio de Sesión
@@ -47,15 +46,15 @@ Pasos para el registro:
 - Rellene el formulario con tus datos personales.
 - Verifica tu correo electrónico.
 
-{CAPTURA SIGNUP}
+![git-sign-up](https://github.com/mele13/EventPlanner/assets/87198060/ca05cbcf-f8cd-4ac6-8005-e8870589d552)
+
 
 Pasos para iniciar sesión:
 - Acceda al inicio de sesión desde la barra de navegación.
 - Introduzca su correo electrónico y contraseña.
 - Inicie sesión.
 
-{CAPTURA LOGIN}
-
+![git-login](https://github.com/mele13/EventPlanner/assets/87198060/b648c517-6ace-4700-a593-e3374df35a9b)
 
 
 2. Creación de Eventos
@@ -70,7 +69,7 @@ Pasos para crear un evento:
 - Configure el menú del evento.
 - Confirme los detalles y selecciona la plantilla y la paleta de colores.
 
-{VIDEO DE CREACIÓN DE EVENTO}
+https://github.com/mele13/EventPlanner/assets/87198060/475c6ea9-f490-4473-af88-bf3d59f74721
 
 
 3. Gestión de Eventos
@@ -79,14 +78,15 @@ Los usuarios pueden gestionar sus eventos creados desde un panel centralizado.
 Funcionalidades del panel gestor:
 - Ver la información de los eventos a los que está asociado un usuario.
 
-{CAPTURA DE MY_EVENTS}
+![git-my-events](https://github.com/mele13/EventPlanner/assets/87198060/af70e592-9793-41ac-8dc7-b1e6fb514b07)
+
 
 Funcionalidades de la gestión de eventos:
 - Actualizar fechas y configuraciones.
 - Visualizar estadísticas del evento y de los participantes.
 - Asignar roles y permisos a otros usuarios.
 
-{CAPTURA DE GESTIÓN DE USUARIOS EN UN EVENTO}
+![git-user-management](https://github.com/mele13/EventPlanner/assets/87198060/ad690b79-b391-4690-ba1a-2a19827f64c5)
 
 
 4. Idiomas
@@ -97,13 +97,13 @@ Pasos para cambiar el idioma:
 - Seleccione el idioma deseado.
 - La interfaz se actualizará automáticamente al idioma seleccionado.
 
-{VIDEO CAMBIO DE IDIOMA}
+![language-change](https://github.com/mele13/EventPlanner/assets/87198060/58f93e14-64f6-41d3-9bb5-ca7c5c2fbb5e)
 
 
 5. Cierre de la sesión
 Se podrá cerrar la sesión desde la barra de navegación siempre y cuando el usuario esté registrado y con la sesión iniciada.
 
-{CAPTURA DE PANTALLA BARRA NAVEGACIÓN}
+![git-navbar-logout](https://github.com/mele13/EventPlanner/assets/87198060/29524605-0c93-41e9-996b-602a9cbf2308)
 
 
 --------------------------------------------------
