@@ -1,7 +1,7 @@
 <template>
   <LangLoadSpinner :modules="modules" />
   <main class="mhvh">
-    <section id="carousel">
+    <section id="cover">
       <HomeCover />
     </section>
   
