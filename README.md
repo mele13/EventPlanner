@@ -3,8 +3,8 @@
 Welcome to the Planner Event repository!
 
 ## Table of Contents
-- [English README](README_EN.md)
-- [README en Español](README_ES.md)
+- [English](README_EN.md)
+- [Español](README_ES.md)
 
 Choose your preferred language to read the documentation.
 
