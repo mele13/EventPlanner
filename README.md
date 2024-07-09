@@ -1,4 +1,4 @@
-Event Planner
+# Event Planner
 
 Welcome to the Planner Event repository!
 
