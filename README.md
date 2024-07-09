@@ -1,4 +1,4 @@
-# Project Name
+Event Planner
 
 Welcome to the Planner Event repository!
 
